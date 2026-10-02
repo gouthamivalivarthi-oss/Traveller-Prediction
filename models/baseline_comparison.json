@@ -1,0 +1,30 @@
+{
+  "Baseline 1: Simple Rule-Based": {
+    "description": "Fixed holiday heuristic: Holiday/Festival = High crowd, else Normal",
+    "demand_mae": 14.34,
+    "demand_rmse": 17.192,
+    "demand_r2": -0.78,
+    "crowd_accuracy": 0.159
+  },
+  "Baseline 2: ML without Holiday Features": {
+    "description": "Standard ML model using only route, season, and vehicle parameters",
+    "demand_mae": 2.719,
+    "demand_rmse": 3.318,
+    "demand_r2": 0.934,
+    "crowd_accuracy": 0.933
+  },
+  "Baseline 3: ML + Holiday & Weekend Features": {
+    "description": "ML trained strictly on holiday, festival, and weekend flags",
+    "demand_mae": 6.399,
+    "demand_rmse": 7.659,
+    "demand_r2": 0.647,
+    "crowd_accuracy": 0.831
+  },
+  "Proposed: Multi-Factor Integrated ML": {
+    "description": "Integrated Random Forest + Holiday Proximity + Historical Demand + Events + Season + Weather + Transport Availability",
+    "demand_mae": 1.826,
+    "demand_rmse": 2.224,
+    "demand_r2": 0.97,
+    "crowd_accuracy": 0.958
+  }
+}

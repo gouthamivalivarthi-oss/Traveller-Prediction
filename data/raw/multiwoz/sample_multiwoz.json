@@ -1,0 +1,71 @@
+[
+  {
+    "dialogue_id": "mwoz_201",
+    "turns": [
+      {
+        "speaker": "USER",
+        "utterance": "I want to take a train from Hyderabad to Tirupati this Saturday."
+      },
+      {
+        "speaker": "SYSTEM",
+        "utterance": "There are several trains leaving Saturday. What departure time do you prefer?"
+      },
+      {
+        "speaker": "USER",
+        "utterance": "Morning train preferred. Is Saturday crowded?"
+      },
+      {
+        "speaker": "SYSTEM",
+        "utterance": "Weekend trains to Tirupati have high demand. Express at 06:15 AM is available."
+      }
+    ],
+    "domain": "train",
+    "goal": {
+      "train": {
+        "departure": "Hyderabad",
+        "destination": "Tirupati",
+        "day": "Saturday"
+      }
+    }
+  },
+  {
+    "dialogue_id": "mwoz_202",
+    "turns": [
+      {
+        "speaker": "USER",
+        "utterance": "What is the best route to travel from Chennai to Bangalore avoiding delays?"
+      },
+      {
+        "speaker": "SYSTEM",
+        "utterance": "The Shatabdi Express route has the lowest delay probability and fastest travel time."
+      }
+    ],
+    "domain": "route",
+    "goal": {
+      "route": {
+        "from": "Chennai",
+        "to": "Bangalore"
+      }
+    }
+  },
+  {
+    "dialogue_id": "mwoz_203",
+    "turns": [
+      {
+        "speaker": "USER",
+        "utterance": "What is my total budget if I travel with 3 people by bus to Vijayawada?"
+      },
+      {
+        "speaker": "SYSTEM",
+        "utterance": "AC Sleeper buses cost approximately 750 INR per passenger, total 2250 INR."
+      }
+    ],
+    "domain": "budget",
+    "goal": {
+      "budget": {
+        "transport": "bus",
+        "passengers": 3
+      }
+    }
+  }
+]

@@ -1,0 +1,1024 @@
+[
+  {
+    "dialogue_id": "ud_1001",
+    "source": "airdialogue",
+    "user_message": "I want to travel from Hyderabad to Vijayawada next weekend.",
+    "intent": "travel_search",
+    "slots": {
+      "origin": "Hyderabad",
+      "destination": "Vijayawada",
+      "travel_date": "next weekend",
+      "transport_mode": "any",
+      "budget": "moderate",
+      "passengers": 1,
+      "preference": "fastest",
+      "purpose": "leisure"
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "travel_search",
+      "extracted_slots": {
+        "origin": "Hyderabad",
+        "destination": "Vijayawada",
+        "travel_date": "next weekend",
+        "transport_mode": "any",
+        "budget": "moderate",
+        "passengers": 1,
+        "preference": "fastest",
+        "purpose": "leisure"
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1002",
+    "source": "airdialogue",
+    "user_message": "Looking for travel options from Bangalore to Goa on 15th November.",
+    "intent": "travel_search",
+    "slots": {
+      "origin": "Bangalore",
+      "destination": "Goa",
+      "travel_date": "2026-11-15",
+      "transport_mode": "flight",
+      "budget": "any",
+      "passengers": 2,
+      "preference": "comfort",
+      "purpose": "vacation"
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "travel_search",
+      "extracted_slots": {
+        "origin": "Bangalore",
+        "destination": "Goa",
+        "travel_date": "2026-11-15",
+        "transport_mode": "flight",
+        "budget": "any",
+        "passengers": 2,
+        "preference": "comfort",
+        "purpose": "vacation"
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1003",
+    "source": "multiwoz",
+    "user_message": "Show me the best routes from Hyderabad to Vijayawada.",
+    "intent": "route_search",
+    "slots": {
+      "origin": "Hyderabad",
+      "destination": "Vijayawada",
+      "travel_date": "",
+      "transport_mode": "car",
+      "budget": "",
+      "passengers": 1,
+      "preference": "fastest",
+      "purpose": ""
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "route_search",
+      "extracted_slots": {
+        "origin": "Hyderabad",
+        "destination": "Vijayawada",
+        "transport_mode": "car",
+        "passengers": 1,
+        "preference": "fastest"
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1004",
+    "source": "tm2",
+    "user_message": "Suggest alternative routes from Mumbai to Pune avoiding highway congestion.",
+    "intent": "route_search",
+    "slots": {
+      "origin": "Mumbai",
+      "destination": "Pune",
+      "travel_date": "today",
+      "transport_mode": "road",
+      "budget": "",
+      "passengers": 1,
+      "preference": "least crowded",
+      "purpose": "commute"
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "route_search",
+      "extracted_slots": {
+        "origin": "Mumbai",
+        "destination": "Pune",
+        "travel_date": "today",
+        "transport_mode": "road",
+        "passengers": 1,
+        "preference": "least crowded",
+        "purpose": "commute"
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1005",
+    "source": "multiwoz",
+    "user_message": "Plan my trip from Hyderabad to Vijayawada on October 20 with hotel and transport.",
+    "intent": "trip_planning",
+    "slots": {
+      "origin": "Hyderabad",
+      "destination": "Vijayawada",
+      "travel_date": "2026-10-20",
+      "return_date": "2026-10-23",
+      "transport_mode": "train",
+      "budget": "5000 INR",
+      "passengers": 2,
+      "preference": "budget",
+      "purpose": "family"
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "trip_planning",
+      "extracted_slots": {
+        "origin": "Hyderabad",
+        "destination": "Vijayawada",
+        "travel_date": "2026-10-20",
+        "return_date": "2026-10-23",
+        "transport_mode": "train",
+        "budget": "5000 INR",
+        "passengers": 2,
+        "preference": "budget",
+        "purpose": "family"
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1006",
+    "source": "tm2",
+    "user_message": "Help me plan a 3-day itinerary for Goa starting this Friday.",
+    "intent": "trip_planning",
+    "slots": {
+      "origin": "Bangalore",
+      "destination": "Goa",
+      "travel_date": "this Friday",
+      "return_date": "Sunday",
+      "transport_mode": "flight",
+      "budget": "15000 INR",
+      "passengers": 2,
+      "preference": "sightseeing",
+      "purpose": "holiday"
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "trip_planning",
+      "extracted_slots": {
+        "origin": "Bangalore",
+        "destination": "Goa",
+        "travel_date": "this Friday",
+        "return_date": "Sunday",
+        "transport_mode": "flight",
+        "budget": "15000 INR",
+        "passengers": 2,
+        "preference": "sightseeing",
+        "purpose": "holiday"
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1007",
+    "source": "tm2",
+    "user_message": "Is there any holiday around my travel date October 20?",
+    "intent": "holiday_query",
+    "slots": {
+      "origin": "",
+      "destination": "",
+      "travel_date": "2026-10-20",
+      "transport_mode": "",
+      "budget": "",
+      "passengers": 1,
+      "preference": "",
+      "purpose": ""
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "holiday_query",
+      "extracted_slots": {
+        "travel_date": "2026-10-20",
+        "passengers": 1
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1008",
+    "source": "tm2",
+    "user_message": "Check upcoming national holidays and long weekends this month.",
+    "intent": "holiday_query",
+    "slots": {
+      "origin": "",
+      "destination": "",
+      "travel_date": "this month",
+      "transport_mode": "",
+      "budget": "",
+      "passengers": 1,
+      "preference": "",
+      "purpose": ""
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "holiday_query",
+      "extracted_slots": {
+        "travel_date": "this month",
+        "passengers": 1
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1009",
+    "source": "airdialogue",
+    "user_message": "Will Vijayawada be crowded on October 20?",
+    "intent": "crowd_prediction",
+    "slots": {
+      "origin": "Hyderabad",
+      "destination": "Vijayawada",
+      "travel_date": "2026-10-20",
+      "transport_mode": "",
+      "budget": "",
+      "passengers": 1,
+      "preference": "",
+      "purpose": ""
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "crowd_prediction",
+      "extracted_slots": {
+        "origin": "Hyderabad",
+        "destination": "Vijayawada",
+        "travel_date": "2026-10-20",
+        "passengers": 1
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1010",
+    "source": "multiwoz",
+    "user_message": "How crowded will Tirupati temple be this Sunday?",
+    "intent": "crowd_prediction",
+    "slots": {
+      "origin": "Chennai",
+      "destination": "Tirupati",
+      "travel_date": "this Sunday",
+      "transport_mode": "train",
+      "budget": "",
+      "passengers": 1,
+      "preference": "",
+      "purpose": "pilgrimage"
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "crowd_prediction",
+      "extracted_slots": {
+        "origin": "Chennai",
+        "destination": "Tirupati",
+        "travel_date": "this Sunday",
+        "transport_mode": "train",
+        "passengers": 1,
+        "purpose": "pilgrimage"
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1011",
+    "source": "airdialogue",
+    "user_message": "What is the expected travel demand for Hyderabad to Vijayawada next Friday?",
+    "intent": "demand_prediction",
+    "slots": {
+      "origin": "Hyderabad",
+      "destination": "Vijayawada",
+      "travel_date": "next Friday",
+      "transport_mode": "bus",
+      "budget": "",
+      "passengers": 1,
+      "preference": "",
+      "purpose": ""
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "demand_prediction",
+      "extracted_slots": {
+        "origin": "Hyderabad",
+        "destination": "Vijayawada",
+        "travel_date": "next Friday",
+        "transport_mode": "bus",
+        "passengers": 1
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1012",
+    "source": "airdialogue",
+    "user_message": "Will travel demand be high during the festival period?",
+    "intent": "demand_prediction",
+    "slots": {
+      "origin": "Hyderabad",
+      "destination": "Vijayawada",
+      "travel_date": "2026-10-20",
+      "transport_mode": "",
+      "budget": "",
+      "passengers": 1,
+      "preference": "",
+      "purpose": "festival"
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "demand_prediction",
+      "extracted_slots": {
+        "origin": "Hyderabad",
+        "destination": "Vijayawada",
+        "travel_date": "2026-10-20",
+        "passengers": 1,
+        "purpose": "festival"
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1013",
+    "source": "airdialogue",
+    "user_message": "Is there a chance of high ticket prices for flights to Delhi next week?",
+    "intent": "price_prediction",
+    "slots": {
+      "origin": "Mumbai",
+      "destination": "Delhi",
+      "travel_date": "next week",
+      "transport_mode": "flight",
+      "budget": "",
+      "passengers": 1,
+      "preference": "economy",
+      "purpose": "business"
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "price_prediction",
+      "extracted_slots": {
+        "origin": "Mumbai",
+        "destination": "Delhi",
+        "travel_date": "next week",
+        "transport_mode": "flight",
+        "passengers": 1,
+        "preference": "economy",
+        "purpose": "business"
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1014",
+    "source": "tm2",
+    "user_message": "Will bus fares increase closer to Diwali weekend?",
+    "intent": "price_prediction",
+    "slots": {
+      "origin": "Bangalore",
+      "destination": "Hyderabad",
+      "travel_date": "Diwali weekend",
+      "transport_mode": "bus",
+      "budget": "",
+      "passengers": 1,
+      "preference": "",
+      "purpose": ""
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "price_prediction",
+      "extracted_slots": {
+        "origin": "Bangalore",
+        "destination": "Hyderabad",
+        "travel_date": "Diwali weekend",
+        "transport_mode": "bus",
+        "passengers": 1
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1015",
+    "source": "airdialogue",
+    "user_message": "Is there a chance of delays traveling from Hyderabad to Vijayawada tomorrow?",
+    "intent": "delay_prediction",
+    "slots": {
+      "origin": "Hyderabad",
+      "destination": "Vijayawada",
+      "travel_date": "tomorrow",
+      "transport_mode": "train",
+      "budget": "",
+      "passengers": 1,
+      "preference": "",
+      "purpose": ""
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "delay_prediction",
+      "extracted_slots": {
+        "origin": "Hyderabad",
+        "destination": "Vijayawada",
+        "travel_date": "tomorrow",
+        "transport_mode": "train",
+        "passengers": 1
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1016",
+    "source": "airdialogue",
+    "user_message": "Are flights to Delhi experiencing weather or fog delays?",
+    "intent": "delay_prediction",
+    "slots": {
+      "origin": "Bangalore",
+      "destination": "Delhi",
+      "travel_date": "today",
+      "transport_mode": "flight",
+      "budget": "",
+      "passengers": 1,
+      "preference": "",
+      "purpose": ""
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "delay_prediction",
+      "extracted_slots": {
+        "origin": "Bangalore",
+        "destination": "Delhi",
+        "travel_date": "today",
+        "transport_mode": "flight",
+        "passengers": 1
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1017",
+    "source": "multiwoz",
+    "user_message": "Which transport mode is more suitable between train and bus for Hyderabad to Vijayawada?",
+    "intent": "transport_recommendation",
+    "slots": {
+      "origin": "Hyderabad",
+      "destination": "Vijayawada",
+      "travel_date": "2026-10-20",
+      "transport_mode": "train or bus",
+      "budget": "medium",
+      "passengers": 2,
+      "preference": "punctual",
+      "purpose": ""
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "transport_recommendation",
+      "extracted_slots": {
+        "origin": "Hyderabad",
+        "destination": "Vijayawada",
+        "travel_date": "2026-10-20",
+        "transport_mode": "train or bus",
+        "budget": "medium",
+        "passengers": 2,
+        "preference": "punctual"
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1018",
+    "source": "tm2",
+    "user_message": "Which transport mode has lower predicted risk for travel to Goa?",
+    "intent": "transport_recommendation",
+    "slots": {
+      "origin": "Bangalore",
+      "destination": "Goa",
+      "travel_date": "this weekend",
+      "transport_mode": "flight vs train vs bus",
+      "budget": "",
+      "passengers": 1,
+      "preference": "safety",
+      "purpose": ""
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "transport_recommendation",
+      "extracted_slots": {
+        "origin": "Bangalore",
+        "destination": "Goa",
+        "travel_date": "this weekend",
+        "transport_mode": "flight vs train vs bus",
+        "passengers": 1,
+        "preference": "safety"
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1019",
+    "source": "tm2",
+    "user_message": "Should I travel Friday or Saturday to avoid peak rush?",
+    "intent": "alternative_date",
+    "slots": {
+      "origin": "Hyderabad",
+      "destination": "Vijayawada",
+      "travel_date": "Friday",
+      "return_date": "Saturday",
+      "transport_mode": "train",
+      "budget": "",
+      "passengers": 1,
+      "preference": "low crowd",
+      "purpose": ""
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "alternative_date",
+      "extracted_slots": {
+        "origin": "Hyderabad",
+        "destination": "Vijayawada",
+        "travel_date": "Friday",
+        "return_date": "Saturday",
+        "transport_mode": "train",
+        "passengers": 1,
+        "preference": "low crowd"
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1020",
+    "source": "airdialogue",
+    "user_message": "Find me a cheaper and less crowded travel date around October 20.",
+    "intent": "alternative_date",
+    "slots": {
+      "origin": "Hyderabad",
+      "destination": "Vijayawada",
+      "travel_date": "2026-10-20",
+      "transport_mode": "bus",
+      "budget": "low",
+      "passengers": 1,
+      "preference": "low crowd",
+      "purpose": ""
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "alternative_date",
+      "extracted_slots": {
+        "origin": "Hyderabad",
+        "destination": "Vijayawada",
+        "travel_date": "2026-10-20",
+        "transport_mode": "bus",
+        "budget": "low",
+        "passengers": 1,
+        "preference": "low crowd"
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1021",
+    "source": "tm2",
+    "user_message": "Suggest another route from Hyderabad to Vijayawada if NH65 has heavy traffic.",
+    "intent": "alternative_route",
+    "slots": {
+      "origin": "Hyderabad",
+      "destination": "Vijayawada",
+      "travel_date": "2026-10-20",
+      "transport_mode": "car",
+      "budget": "",
+      "passengers": 1,
+      "preference": "traffic free",
+      "purpose": ""
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "alternative_route",
+      "extracted_slots": {
+        "origin": "Hyderabad",
+        "destination": "Vijayawada",
+        "travel_date": "2026-10-20",
+        "transport_mode": "car",
+        "passengers": 1,
+        "preference": "traffic free"
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1022",
+    "source": "tm2",
+    "user_message": "What alternative routes can I consider for driving to Ooty?",
+    "intent": "alternative_route",
+    "slots": {
+      "origin": "Bangalore",
+      "destination": "Ooty",
+      "travel_date": "Saturday",
+      "transport_mode": "car",
+      "budget": "",
+      "passengers": 2,
+      "preference": "scenic",
+      "purpose": "leisure"
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "alternative_route",
+      "extracted_slots": {
+        "origin": "Bangalore",
+        "destination": "Ooty",
+        "travel_date": "Saturday",
+        "transport_mode": "car",
+        "passengers": 2,
+        "preference": "scenic",
+        "purpose": "leisure"
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1023",
+    "source": "tm2",
+    "user_message": "Tell me about tourist attractions and current travel guidelines in Vijayawada.",
+    "intent": "destination_information",
+    "slots": {
+      "origin": "",
+      "destination": "Vijayawada",
+      "travel_date": "",
+      "transport_mode": "",
+      "budget": "",
+      "passengers": 1,
+      "preference": "sightseeing",
+      "purpose": "tourism"
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "destination_information",
+      "extracted_slots": {
+        "destination": "Vijayawada",
+        "passengers": 1,
+        "preference": "sightseeing",
+        "purpose": "tourism"
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1024",
+    "source": "tm2",
+    "user_message": "What are the top places to visit in Goa in November?",
+    "intent": "destination_information",
+    "slots": {
+      "origin": "",
+      "destination": "Goa",
+      "travel_date": "November",
+      "transport_mode": "",
+      "budget": "",
+      "passengers": 1,
+      "preference": "beach",
+      "purpose": "vacation"
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "destination_information",
+      "extracted_slots": {
+        "destination": "Goa",
+        "travel_date": "November",
+        "passengers": 1,
+        "preference": "beach",
+        "purpose": "vacation"
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1025",
+    "source": "multiwoz",
+    "user_message": "What is the estimated budget for 4 people traveling to Tirupati by car?",
+    "intent": "budget_query",
+    "slots": {
+      "origin": "Hyderabad",
+      "destination": "Tirupati",
+      "travel_date": "next month",
+      "transport_mode": "car",
+      "budget": "",
+      "passengers": 4,
+      "preference": "standard",
+      "purpose": "pilgrimage"
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "budget_query",
+      "extracted_slots": {
+        "origin": "Hyderabad",
+        "destination": "Tirupati",
+        "travel_date": "next month",
+        "transport_mode": "car",
+        "passengers": 4,
+        "preference": "standard",
+        "purpose": "pilgrimage"
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1026",
+    "source": "multiwoz",
+    "user_message": "Can I travel to Jaipur within a budget of 3000 rupees?",
+    "intent": "budget_query",
+    "slots": {
+      "origin": "Delhi",
+      "destination": "Jaipur",
+      "travel_date": "tomorrow",
+      "transport_mode": "train",
+      "budget": "3000 INR",
+      "passengers": 1,
+      "preference": "economy",
+      "purpose": ""
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "budget_query",
+      "extracted_slots": {
+        "origin": "Delhi",
+        "destination": "Jaipur",
+        "travel_date": "tomorrow",
+        "transport_mode": "train",
+        "budget": "3000 INR",
+        "passengers": 1,
+        "preference": "economy"
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1027",
+    "source": "tm2",
+    "user_message": "What is the weather forecast for Vijayawada around October 20?",
+    "intent": "weather_query",
+    "slots": {
+      "origin": "",
+      "destination": "Vijayawada",
+      "travel_date": "2026-10-20",
+      "transport_mode": "",
+      "budget": "",
+      "passengers": 1,
+      "preference": "",
+      "purpose": ""
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "weather_query",
+      "extracted_slots": {
+        "destination": "Vijayawada",
+        "travel_date": "2026-10-20",
+        "passengers": 1
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1028",
+    "source": "tm2",
+    "user_message": "Is it raining or foggy along the Mumbai-Pune expressway?",
+    "intent": "weather_query",
+    "slots": {
+      "origin": "Mumbai",
+      "destination": "Pune",
+      "travel_date": "today",
+      "transport_mode": "car",
+      "budget": "",
+      "passengers": 1,
+      "preference": "",
+      "purpose": ""
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "weather_query",
+      "extracted_slots": {
+        "origin": "Mumbai",
+        "destination": "Pune",
+        "travel_date": "today",
+        "transport_mode": "car",
+        "passengers": 1
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1029",
+    "source": "airdialogue",
+    "user_message": "Why is my travel risk high for October 20?",
+    "intent": "travel_risk",
+    "slots": {
+      "origin": "Hyderabad",
+      "destination": "Vijayawada",
+      "travel_date": "2026-10-20",
+      "transport_mode": "train",
+      "budget": "",
+      "passengers": 1,
+      "preference": "",
+      "purpose": ""
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "travel_risk",
+      "extracted_slots": {
+        "origin": "Hyderabad",
+        "destination": "Vijayawada",
+        "travel_date": "2026-10-20",
+        "transport_mode": "train",
+        "passengers": 1
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1030",
+    "source": "airdialogue",
+    "user_message": "What factors contribute to the overall travel risk score?",
+    "intent": "travel_risk",
+    "slots": {
+      "origin": "Hyderabad",
+      "destination": "Vijayawada",
+      "travel_date": "2026-10-20",
+      "transport_mode": "",
+      "budget": "",
+      "passengers": 1,
+      "preference": "",
+      "purpose": ""
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "travel_risk",
+      "extracted_slots": {
+        "origin": "Hyderabad",
+        "destination": "Vijayawada",
+        "travel_date": "2026-10-20",
+        "passengers": 1
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1031",
+    "source": "airdialogue",
+    "user_message": "Check my booking status from Hyderabad to Vijayawada.",
+    "intent": "booking_query",
+    "slots": {
+      "origin": "Hyderabad",
+      "destination": "Vijayawada",
+      "travel_date": "2026-10-20",
+      "transport_mode": "train",
+      "budget": "",
+      "passengers": 1,
+      "preference": "",
+      "purpose": ""
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "booking_query",
+      "extracted_slots": {
+        "origin": "Hyderabad",
+        "destination": "Vijayawada",
+        "travel_date": "2026-10-20",
+        "transport_mode": "train",
+        "passengers": 1
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1032",
+    "source": "airdialogue",
+    "user_message": "I want to reschedule my ticket to travel one day earlier.",
+    "intent": "booking_change",
+    "slots": {
+      "origin": "Hyderabad",
+      "destination": "Vijayawada",
+      "travel_date": "2026-10-19",
+      "transport_mode": "bus",
+      "budget": "",
+      "passengers": 1,
+      "preference": "",
+      "purpose": ""
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "booking_change",
+      "extracted_slots": {
+        "origin": "Hyderabad",
+        "destination": "Vijayawada",
+        "travel_date": "2026-10-19",
+        "transport_mode": "bus",
+        "passengers": 1
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1033",
+    "source": "airdialogue",
+    "user_message": "Cancel my travel ticket and process refund.",
+    "intent": "booking_cancel",
+    "slots": {
+      "origin": "Delhi",
+      "destination": "Jaipur",
+      "travel_date": "2026-10-25",
+      "transport_mode": "flight",
+      "budget": "",
+      "passengers": 1,
+      "preference": "",
+      "purpose": ""
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "booking_cancel",
+      "extracted_slots": {
+        "origin": "Delhi",
+        "destination": "Jaipur",
+        "travel_date": "2026-10-25",
+        "transport_mode": "flight",
+        "passengers": 1
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1034",
+    "source": "tm2",
+    "user_message": "What travel tips do you recommend for first-time train travelers in India?",
+    "intent": "general_travel_question",
+    "slots": {
+      "origin": "",
+      "destination": "",
+      "travel_date": "",
+      "transport_mode": "train",
+      "budget": "",
+      "passengers": 1,
+      "preference": "",
+      "purpose": ""
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "general_travel_question",
+      "extracted_slots": {
+        "transport_mode": "train",
+        "passengers": 1
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1035",
+    "source": "multiwoz",
+    "user_message": "Could you explain what you meant by crowd level VERY HIGH?",
+    "intent": "clarification",
+    "slots": {
+      "origin": "",
+      "destination": "",
+      "travel_date": "",
+      "transport_mode": "",
+      "budget": "",
+      "passengers": 1,
+      "preference": "",
+      "purpose": ""
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "clarification",
+      "extracted_slots": {
+        "passengers": 1
+      }
+    }
+  },
+  {
+    "dialogue_id": "ud_1036",
+    "source": "tm2",
+    "user_message": "What is the capital of France?",
+    "intent": "unknown",
+    "slots": {
+      "origin": "",
+      "destination": "",
+      "travel_date": "",
+      "transport_mode": "",
+      "budget": "",
+      "passengers": 1,
+      "preference": "",
+      "purpose": ""
+    },
+    "dialogue_state": {
+      "turn_count": 1,
+      "current_step": "user_input",
+      "active_intent": "unknown",
+      "extracted_slots": {
+        "passengers": 1
+      }
+    }
+  }
+]

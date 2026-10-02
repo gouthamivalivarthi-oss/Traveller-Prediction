@@ -1,0 +1,62 @@
+[
+  {
+    "id": "h_1",
+    "name": "Dussehra / Vijayadashami",
+    "date": "2026-10-20",
+    "endDate": "2026-10-21",
+    "location": "National / Andhra Pradesh / Telangana",
+    "type": "festival",
+    "importance": "high",
+    "description": "Major festival with heavy regional travel across Vijayawada, Hyderabad and South India."
+  },
+  {
+    "id": "h_2",
+    "name": "Diwali / Deepavali",
+    "date": "2026-11-08",
+    "endDate": "2026-11-10",
+    "location": "National",
+    "type": "festival",
+    "importance": "high",
+    "description": "Festival of Lights; nationwide peak travel demand on trains, flights, and interstate highways."
+  },
+  {
+    "id": "h_3",
+    "name": "Christmas & Year End Holidays",
+    "date": "2026-12-24",
+    "endDate": "2027-01-01",
+    "location": "National / Goa / Tourist Hubs",
+    "type": "holiday",
+    "importance": "high",
+    "description": "Peak vacation period especially for leisure destinations like Goa, Manali, Kerala."
+  },
+  {
+    "id": "h_4",
+    "name": "Sankranti / Pongal",
+    "date": "2027-01-14",
+    "endDate": "2027-01-17",
+    "location": "Andhra Pradesh / Telangana / Tamil Nadu",
+    "type": "festival",
+    "importance": "high",
+    "description": "Massive homecoming exodus from Hyderabad to Vijayawada, Guntur, Rajahmundry, Visakhapatnam."
+  },
+  {
+    "id": "h_5",
+    "name": "Republic Day Long Weekend",
+    "date": "2027-01-26",
+    "endDate": "2027-01-26",
+    "location": "National",
+    "type": "holiday",
+    "importance": "medium",
+    "description": "National public holiday creating 3-day weekend leisure travel."
+  },
+  {
+    "id": "h_6",
+    "name": "Holi Festival",
+    "date": "2027-03-23",
+    "endDate": "2027-03-24",
+    "location": "National / North India",
+    "type": "festival",
+    "importance": "medium",
+    "description": "Festival of colors with surge demand in northern and central transit corridors."
+  }
+]

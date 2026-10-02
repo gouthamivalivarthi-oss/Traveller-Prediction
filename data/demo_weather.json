@@ -1,0 +1,44 @@
+{
+  "Vijayawada": {
+    "condition": "Sunny",
+    "temp_c": 31,
+    "rain_prob": 10,
+    "risk": "LOW"
+  },
+  "Hyderabad": {
+    "condition": "Clear",
+    "temp_c": 28,
+    "rain_prob": 15,
+    "risk": "LOW"
+  },
+  "Goa": {
+    "condition": "Humid Breeze",
+    "temp_c": 29,
+    "rain_prob": 25,
+    "risk": "LOW"
+  },
+  "Tirupati": {
+    "condition": "Partly Cloudy",
+    "temp_c": 30,
+    "rain_prob": 20,
+    "risk": "LOW"
+  },
+  "Delhi": {
+    "condition": "Hazy / Foggy",
+    "temp_c": 22,
+    "rain_prob": 5,
+    "risk": "MEDIUM"
+  },
+  "Bangalore": {
+    "condition": "Pleasant",
+    "temp_c": 24,
+    "rain_prob": 30,
+    "risk": "LOW"
+  },
+  "Mumbai": {
+    "condition": "Scattered Showers",
+    "temp_c": 29,
+    "rain_prob": 65,
+    "risk": "HIGH"
+  }
+}

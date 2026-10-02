@@ -1,0 +1,52 @@
+[
+  {
+    "conversation_id": "tm2_301",
+    "utterances": [
+      {
+        "speaker": "user",
+        "text": "Is tomorrow a good day to travel from Hyderabad to Warangal?"
+      },
+      {
+        "speaker": "assistant",
+        "text": "Tomorrow has normal travel traffic, good weather, and low delay risk."
+      },
+      {
+        "speaker": "user",
+        "text": "Great! Suggest another alternative route just in case of road works."
+      },
+      {
+        "speaker": "assistant",
+        "text": "You can take the NH163 bypass which saves 20 minutes if highway traffic peaks."
+      }
+    ],
+    "task": "travel_recommendation"
+  },
+  {
+    "conversation_id": "tm2_302",
+    "utterances": [
+      {
+        "speaker": "user",
+        "text": "Will Manali be crowded during New Year week?"
+      },
+      {
+        "speaker": "assistant",
+        "text": "Manali experiences extremely high crowd levels and surge accommodation prices between Dec 28 and Jan 2."
+      }
+    ],
+    "task": "crowd_inquiry"
+  },
+  {
+    "conversation_id": "tm2_303",
+    "utterances": [
+      {
+        "speaker": "user",
+        "text": "Is there any national holiday or festival next week?"
+      },
+      {
+        "speaker": "assistant",
+        "text": "Yes, next Thursday is a public holiday followed by an extended weekend."
+      }
+    ],
+    "task": "holiday_inquiry"
+  }
+]

@@ -1,0 +1,150 @@
+[
+  {
+    "route_id": "hyd_vja_1",
+    "origin": "Hyderabad",
+    "destination": "Vijayawada",
+    "route_name": "NH65 Direct Express Highway",
+    "distance_km": 274,
+    "modes": {
+      "train": {
+        "duration_mins": 285,
+        "avg_cost": 350,
+        "transfers": 0,
+        "reliability": 0.92,
+        "delay_risk": "MEDIUM"
+      },
+      "bus": {
+        "duration_mins": 360,
+        "avg_cost": 550,
+        "transfers": 0,
+        "reliability": 0.85,
+        "delay_risk": "HIGH"
+      },
+      "flight": {
+        "duration_mins": 55,
+        "avg_cost": 2900,
+        "transfers": 0,
+        "reliability": 0.95,
+        "delay_risk": "LOW"
+      },
+      "car": {
+        "duration_mins": 310,
+        "avg_cost": 2800,
+        "transfers": 0,
+        "reliability": 0.88,
+        "delay_risk": "MEDIUM"
+      },
+      "taxi": {
+        "duration_mins": 310,
+        "avg_cost": 4200,
+        "transfers": 0,
+        "reliability": 0.9,
+        "delay_risk": "MEDIUM"
+      },
+      "public_transport": {
+        "duration_mins": 420,
+        "avg_cost": 280,
+        "transfers": 1,
+        "reliability": 0.8,
+        "delay_risk": "HIGH"
+      }
+    }
+  },
+  {
+    "route_id": "hyd_vja_2",
+    "origin": "Hyderabad",
+    "destination": "Vijayawada",
+    "route_name": "Via Miryalaguda & Guntur (SH2 Bypass)",
+    "distance_km": 298,
+    "modes": {
+      "car": {
+        "duration_mins": 345,
+        "avg_cost": 3100,
+        "transfers": 0,
+        "reliability": 0.89,
+        "delay_risk": "LOW"
+      },
+      "bus": {
+        "duration_mins": 410,
+        "avg_cost": 520,
+        "transfers": 0,
+        "reliability": 0.84,
+        "delay_risk": "MEDIUM"
+      }
+    }
+  },
+  {
+    "route_id": "blr_goa_1",
+    "origin": "Bangalore",
+    "destination": "Goa",
+    "route_name": "NH48 via Hubli & Dharwad",
+    "distance_km": 560,
+    "modes": {
+      "flight": {
+        "duration_mins": 70,
+        "avg_cost": 3600,
+        "transfers": 0,
+        "reliability": 0.94,
+        "delay_risk": "LOW"
+      },
+      "train": {
+        "duration_mins": 710,
+        "avg_cost": 650,
+        "transfers": 0,
+        "reliability": 0.87,
+        "delay_risk": "MEDIUM"
+      },
+      "bus": {
+        "duration_mins": 780,
+        "avg_cost": 1100,
+        "transfers": 0,
+        "reliability": 0.82,
+        "delay_risk": "HIGH"
+      },
+      "car": {
+        "duration_mins": 620,
+        "avg_cost": 5400,
+        "transfers": 0,
+        "reliability": 0.86,
+        "delay_risk": "MEDIUM"
+      }
+    }
+  },
+  {
+    "route_id": "chn_tpt_1",
+    "origin": "Chennai",
+    "destination": "Tirupati",
+    "route_name": "NH716 Direct Route",
+    "distance_km": 135,
+    "modes": {
+      "train": {
+        "duration_mins": 190,
+        "avg_cost": 160,
+        "transfers": 0,
+        "reliability": 0.94,
+        "delay_risk": "LOW"
+      },
+      "bus": {
+        "duration_mins": 240,
+        "avg_cost": 220,
+        "transfers": 0,
+        "reliability": 0.88,
+        "delay_risk": "MEDIUM"
+      },
+      "car": {
+        "duration_mins": 210,
+        "avg_cost": 1800,
+        "transfers": 0,
+        "reliability": 0.9,
+        "delay_risk": "LOW"
+      },
+      "taxi": {
+        "duration_mins": 210,
+        "avg_cost": 2600,
+        "transfers": 0,
+        "reliability": 0.92,
+        "delay_risk": "LOW"
+      }
+    }
+  }
+]

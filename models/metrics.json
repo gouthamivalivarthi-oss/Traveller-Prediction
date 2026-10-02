@@ -1,0 +1,58 @@
+{
+  "regression": {
+    "random_forest": {
+      "mae": 1.826,
+      "rmse": 2.224,
+      "r2": 0.97
+    },
+    "gradient_boosting": {
+      "mae": 1.748,
+      "rmse": 2.106,
+      "r2": 0.973
+    }
+  },
+  "classification": {
+    "crowd_level": {
+      "accuracy": 0.958,
+      "precision": 0.958,
+      "recall": 0.958,
+      "f1": 0.958
+    },
+    "delay_risk": {
+      "accuracy": 0.797,
+      "precision": 0.793,
+      "recall": 0.797,
+      "f1": 0.788
+    },
+    "price_risk": {
+      "accuracy": 0.947,
+      "precision": 0.946,
+      "recall": 0.947,
+      "f1": 0.946
+    }
+  },
+  "dialogue": {
+    "intent_accuracy": 1.0,
+    "slot_f1": 0.94,
+    "dialogue_state_accuracy": 0.96,
+    "total_dialogue_samples": 36,
+    "unique_intents": 21
+  },
+  "rag": {
+    "retrieval_precision": 0.95,
+    "retrieval_recall": 0.92,
+    "mrr": 0.94,
+    "groundedness": 0.96
+  },
+  "system": {
+    "avg_response_time_ms": 42.5,
+    "api_latency_ms": 18.2,
+    "prediction_latency_ms": 8.7
+  },
+  "dataset": {
+    "total_records": 10950,
+    "train_samples": 8760,
+    "test_samples": 2190,
+    "features_count": 12
+  }
+}

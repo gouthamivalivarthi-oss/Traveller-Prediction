@@ -1,0 +1,35 @@
+[
+  {
+    "id": "e_1",
+    "name": "Vijayawada Kanaka Durga Navaratri Utsavalu",
+    "date": "2026-10-15",
+    "endDate": "2026-10-23",
+    "location": "Vijayawada",
+    "type": "cultural_religious",
+    "importance": "high",
+    "crowd_impact": "VERY HIGH",
+    "description": "Over 1.5 million pilgrims visit Indrakeeladri temple in Vijayawada during Dussehra."
+  },
+  {
+    "id": "e_2",
+    "name": "Goa Sunburn & Winter Carnival",
+    "date": "2026-12-27",
+    "endDate": "2026-12-31",
+    "location": "Goa",
+    "type": "music_festival",
+    "importance": "high",
+    "crowd_impact": "VERY HIGH",
+    "description": "Annual electronic music festival drawing over 100,000 visitors, causing hotel & flight price spikes."
+  },
+  {
+    "id": "e_3",
+    "name": "Hyderabad Global Tech & IT Expo",
+    "date": "2026-11-18",
+    "endDate": "2026-11-20",
+    "location": "Hyderabad (HITEX)",
+    "type": "business_conference",
+    "importance": "medium",
+    "crowd_impact": "MEDIUM",
+    "description": "International conference causing increased business travel and airport traffic."
+  }
+]
