@@ -42,7 +42,7 @@ export default function TiltCard({
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
       style={style}
-      className={`glass-panel-warm rounded-3xl p-6 transition-shadow duration-300 ${onClick ? 'cursor-pointer' : ''} ${className}`}
+      className={`glass-panel rounded-3xl p-6 transition-shadow duration-300 ${onClick ? 'cursor-pointer' : ''} ${className}`}
     >
       {children}
     </div>

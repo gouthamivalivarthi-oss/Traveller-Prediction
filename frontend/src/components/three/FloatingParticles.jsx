@@ -18,13 +18,19 @@ export default function FloatingParticles({ count = 35 }) {
     };
     window.addEventListener('resize', onResize);
 
-    // Warm colors: Golden Yellow, Coral, Orange, Cream
-    const colors = ['rgba(255, 200, 87, 0.45)', 'rgba(255, 159, 67, 0.35)', 'rgba(255, 118, 87, 0.25)', 'rgba(168, 201, 155, 0.25)'];
+    // Cool celestial palette: Sapphire, Cyan, Electric Indigo, Ice White
+    const colors = [
+      'rgba(59, 130, 246, 0.50)',
+      'rgba(6, 182, 212, 0.45)',
+      'rgba(99, 102, 241, 0.40)',
+      'rgba(147, 197, 253, 0.35)',
+      'rgba(248, 250, 252, 0.30)'
+    ];
 
     const particles = Array.from({ length: count }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      size: Math.random() * 4 + 1.5,
+      size: Math.random() * 3.5 + 1.2,
       speedX: (Math.random() - 0.5) * 0.4,
       speedY: -Math.random() * 0.5 - 0.2,
       color: colors[Math.floor(Math.random() * colors.length)],
@@ -64,7 +70,7 @@ export default function FloatingParticles({ count = 35 }) {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-0 opacity-70"
+      className="fixed inset-0 pointer-events-none z-0 opacity-60"
     />
   );
 }

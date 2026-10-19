@@ -87,7 +87,7 @@ export default function ChatbotPage() {
       }
     } catch (err) {
       console.warn('Chat error:', err);
-      // Warm fallback response
+      // Fallback response
       const fallbackAiMsg = {
         id: Date.now() + 1,
         sender: 'ai',
@@ -139,21 +139,21 @@ export default function ChatbotPage() {
   };
 
   return (
-    <div className="h-[calc(100vh-8.5rem)] flex flex-col rounded-3xl glass-panel-warm border border-[#F2DECC] overflow-hidden shadow-2xl">
+    <div className="h-[calc(100vh-8.5rem)] flex flex-col rounded-3xl bg-slate-900/80 border border-slate-800 overflow-hidden shadow-2xl backdrop-blur-xl">
       {/* Chatbot Header */}
-      <div className="px-6 py-4 border-b border-[#F2DECC] bg-[#FFF8ED]/90 backdrop-blur-md flex items-center justify-between">
+      <div className="px-6 py-4 border-b border-slate-800 bg-slate-900/90 backdrop-blur-md flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-[#FF7657] to-[#FF9F43] flex items-center justify-center text-white shadow-md shadow-[#FF7657]/30">
-            <Sparkles className="w-5 h-5" />
+          <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-cyan-500 flex items-center justify-center text-white shadow-lg shadow-cyan-500/20">
+            <Sparkles className="w-5 h-5 text-cyan-200" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h2 className="font-extrabold text-[#34261F] text-base">Travel AI</h2>
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#7BC67B]/20 text-[#2D6A2E] border border-[#7BC67B]/40">
+              <h2 className="font-extrabold text-white text-base">Travel AI</h2>
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
                 Online & Predictive
               </span>
             </div>
-            <p className="text-xs text-[#7A5843]">
+            <p className="text-xs text-slate-400">
               Your intelligent journey companion • MultiWOZ RAG & Random Forest Engine
             </p>
           </div>
@@ -161,7 +161,7 @@ export default function ChatbotPage() {
 
         <button
           onClick={() => setMessages(initialMessages)}
-          className="text-xs text-[#7A5843] hover:text-[#34261F] flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#FFFDF8] border border-[#F2DECC] hover:bg-[#FFF8ED] transition-colors cursor-pointer"
+          className="text-xs text-slate-400 hover:text-white flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800/60 border border-slate-700/60 hover:bg-slate-700/60 transition-colors cursor-pointer"
           title="Clear Chat History"
         >
           <RefreshCw className="w-3.5 h-3.5" />
@@ -179,16 +179,16 @@ export default function ChatbotPage() {
             }`}
           >
             {msg.sender === 'ai' && (
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#FF7657] to-[#FF9F43] flex items-center justify-center shrink-0 mt-0.5 shadow-sm text-white">
-                <Sparkles className="w-4 h-4" />
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center shrink-0 mt-0.5 shadow-md shadow-cyan-500/20 text-white">
+                <Sparkles className="w-4 h-4 text-cyan-100" />
               </div>
             )}
 
             <div
-              className={`max-w-2xl rounded-3xl p-4 sm:p-5 text-sm leading-relaxed space-y-3 shadow-sm ${
+              className={`max-w-2xl rounded-3xl p-4 sm:p-5 text-sm leading-relaxed space-y-3 shadow-md ${
                 msg.sender === 'user'
-                  ? 'bg-gradient-to-r from-[#FF7657] to-[#FF9F43] text-white rounded-tr-none shadow-md font-medium'
-                  : 'bg-[#FFFDF8]/90 text-[#34261F] border border-[#F2DECC] rounded-tl-none shadow-sm'
+                  ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-tr-none shadow-blue-500/20 font-medium'
+                  : 'bg-slate-800/80 text-slate-100 border border-slate-700/60 rounded-tl-none'
               }`}
             >
               {/* Formatted Markdown-like Content */}
@@ -197,7 +197,7 @@ export default function ChatbotPage() {
                   <p key={pIdx}>
                     {paragraph.split('**').map((chunk, cIdx) =>
                       cIdx % 2 === 1 ? (
-                        <strong key={cIdx} className={`font-bold ${msg.sender === 'user' ? 'text-white' : 'text-[#34261F]'}`}>
+                        <strong key={cIdx} className={`font-bold ${msg.sender === 'user' ? 'text-white' : 'text-cyan-300'}`}>
                           {chunk}
                         </strong>
                       ) : (
@@ -210,41 +210,41 @@ export default function ChatbotPage() {
 
               {/* Inline Structured Prediction Card */}
               {msg.predictionCard && (
-                <div className="mt-4 p-4 rounded-2xl bg-[#FFF8ED] border border-[#F2DECC] space-y-3 shadow-inner">
-                  <div className="flex items-center justify-between border-b border-[#F2DECC] pb-2">
+                <div className="mt-4 p-4 rounded-2xl bg-slate-900/90 border border-slate-700/80 space-y-3 shadow-inner">
+                  <div className="flex items-center justify-between border-b border-slate-800 pb-2">
                     <div className="flex items-center gap-2">
-                      <Sparkles className="w-4 h-4 text-[#FF7657]" />
-                      <span className="font-bold text-[#34261F] text-xs uppercase tracking-wider">
+                      <Sparkles className="w-4 h-4 text-cyan-400" />
+                      <span className="font-bold text-slate-200 text-xs uppercase tracking-wider">
                         Prediction Forecast Card
                       </span>
                     </div>
-                    <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-[#FF7657]/15 text-[#FF7657] border border-[#FF7657]/30">
+                    <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
                       {msg.predictionCard.crowd_level} DEMAND
                     </span>
                   </div>
 
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-xs">
-                    <div className="p-2.5 rounded-xl bg-[#FFFDF8] border border-[#F2DECC]">
-                      <span className="text-[10px] text-[#7A5843] block font-semibold">Demand Score</span>
-                      <span className="font-black text-[#FF7657] text-base">
+                    <div className="p-2.5 rounded-xl bg-slate-800/60 border border-slate-700/50">
+                      <span className="text-[10px] text-slate-400 block font-semibold">Demand Score</span>
+                      <span className="font-black text-cyan-400 text-base">
                         {msg.predictionCard.demand_score}%
                       </span>
                     </div>
-                    <div className="p-2.5 rounded-xl bg-[#FFFDF8] border border-[#F2DECC]">
-                      <span className="text-[10px] text-[#7A5843] block font-semibold">Delay Risk</span>
-                      <span className="font-bold text-[#FF9F43] text-sm">
+                    <div className="p-2.5 rounded-xl bg-slate-800/60 border border-slate-700/50">
+                      <span className="text-[10px] text-slate-400 block font-semibold">Delay Risk</span>
+                      <span className="font-bold text-amber-400 text-sm">
                         {msg.predictionCard.delay_risk}
                       </span>
                     </div>
-                    <div className="p-2.5 rounded-xl bg-[#FFFDF8] border border-[#F2DECC]">
-                      <span className="text-[10px] text-[#7A5843] block font-semibold">Price Risk</span>
-                      <span className="font-bold text-[#FF7657] text-sm">
+                    <div className="p-2.5 rounded-xl bg-slate-800/60 border border-slate-700/50">
+                      <span className="text-[10px] text-slate-400 block font-semibold">Price Risk</span>
+                      <span className="font-bold text-rose-400 text-sm">
                         {msg.predictionCard.price_risk}
                       </span>
                     </div>
-                    <div className="p-2.5 rounded-xl bg-[#FFFDF8] border border-[#F2DECC]">
-                      <span className="text-[10px] text-[#7A5843] block font-semibold">Trip Risk</span>
-                      <span className="font-bold text-[#A85832] text-sm">
+                    <div className="p-2.5 rounded-xl bg-slate-800/60 border border-slate-700/50">
+                      <span className="text-[10px] text-slate-400 block font-semibold">Trip Risk</span>
+                      <span className="font-bold text-blue-400 text-sm">
                         {msg.predictionCard.overall_risk_level}
                       </span>
                     </div>
@@ -254,13 +254,13 @@ export default function ChatbotPage() {
 
               {/* Inline Date Comparison */}
               {msg.dateComparison && (
-                <div className="mt-4 p-3 rounded-2xl bg-[#FFF8ED] border border-[#F2DECC] overflow-x-auto shadow-inner">
-                  <span className="text-xs font-bold text-[#34261F] mb-2 block">
+                <div className="mt-4 p-3 rounded-2xl bg-slate-900/90 border border-slate-700/80 overflow-x-auto shadow-inner">
+                  <span className="text-xs font-bold text-slate-200 mb-2 block">
                     Adjacent Dates (-2 to +2 Days)
                   </span>
                   <table className="w-full text-xs text-left">
                     <thead>
-                      <tr className="border-b border-[#F2DECC] text-[#7A5843]">
+                      <tr className="border-b border-slate-800 text-slate-400">
                         <th className="py-1.5 px-2">Date</th>
                         <th className="py-1.5 px-2">Demand</th>
                         <th className="py-1.5 px-2">Crowd</th>
@@ -271,12 +271,12 @@ export default function ChatbotPage() {
                       {msg.dateComparison.map((row, rIdx) => (
                         <tr
                           key={rIdx}
-                          className={`border-b border-[#F2DECC]/50 ${
-                            row.is_selected ? 'bg-[#FF7657]/15 font-bold text-[#FF7657]' : 'text-[#34261F]'
+                          className={`border-b border-slate-800/60 ${
+                            row.is_selected ? 'bg-cyan-500/15 font-bold text-cyan-300' : 'text-slate-300'
                           }`}
                         >
                           <td className="py-1.5 px-2">{row.display_date || row.date}</td>
-                          <td className="py-1.5 px-2">{row.demand}%</td>
+                          <td className="py-1.5 px-2 font-mono font-bold text-cyan-400">{row.demand}%</td>
                           <td className="py-1.5 px-2">{row.crowd_level}</td>
                           <td className="py-1.5 px-2">{row.delay_risk}</td>
                         </tr>
@@ -293,10 +293,10 @@ export default function ChatbotPage() {
                     <button
                       key={bIdx}
                       onClick={() => handleActionButtonClick(btnText)}
-                      className="text-xs font-bold px-3 py-1.5 rounded-xl bg-[#FFF8ED] hover:bg-[#FDE7D3] text-[#A85832] border border-[#F2DECC] hover:border-[#FF9F43] transition-all flex items-center gap-1.5 cursor-pointer shadow-sm"
+                      className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-cyan-300 border border-slate-700/80 hover:border-cyan-500/50 transition-all flex items-center gap-1.5 cursor-pointer shadow-sm hover:shadow-cyan-500/10"
                     >
                       <span>{btnText}</span>
-                      <ArrowRight className="w-3 h-3 text-[#FF7657]" />
+                      <ArrowRight className="w-3 h-3 text-cyan-400" />
                     </button>
                   ))}
                 </div>
@@ -304,7 +304,7 @@ export default function ChatbotPage() {
             </div>
 
             {msg.sender === 'user' && (
-              <div className="w-8 h-8 rounded-xl bg-[#5A4032] flex items-center justify-center shrink-0 mt-0.5 text-[#FFF8ED] font-bold text-xs shadow-sm">
+              <div className="w-8 h-8 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0 mt-0.5 text-white font-bold text-xs shadow-sm">
                 {user?.name ? user.name[0].toUpperCase() : 'U'}
               </div>
             )}
@@ -313,16 +313,16 @@ export default function ChatbotPage() {
 
         {loading && (
           <div className="flex items-start gap-3">
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#FF7657] to-[#FF9F43] flex items-center justify-center shrink-0 text-white">
-              <Sparkles className="w-4 h-4 animate-spin" />
+            <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center shrink-0 text-white">
+              <Sparkles className="w-4 h-4 animate-spin text-cyan-100" />
             </div>
-            <div className="bg-[#FFFDF8] p-4 rounded-3xl rounded-tl-none border border-[#F2DECC] text-[#7A5843] text-sm flex items-center gap-3 shadow-sm">
+            <div className="bg-slate-800/80 p-4 rounded-3xl rounded-tl-none border border-slate-700 text-slate-300 text-sm flex items-center gap-3 shadow-sm">
               <div className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-[#FF7657] animate-ping" />
-                <span className="w-2 h-2 rounded-full bg-[#FF9F43] animate-ping delay-150" />
-                <span className="w-2 h-2 rounded-full bg-[#FFC857] animate-ping delay-300" />
+                <span className="w-2 h-2 rounded-full bg-blue-500 animate-ping" />
+                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping delay-150" />
+                <span className="w-2 h-2 rounded-full bg-indigo-400 animate-ping delay-300" />
               </div>
-              <span className="text-xs font-semibold text-[#5A4032]">
+              <span className="text-xs font-semibold text-slate-300">
                 Evaluating dialogue intent & running prediction model...
               </span>
             </div>
@@ -332,7 +332,7 @@ export default function ChatbotPage() {
       </div>
 
       {/* Input Bar */}
-      <div className="p-4 border-t border-[#F2DECC] bg-[#FFF8ED]/90 backdrop-blur-md">
+      <div className="p-4 border-t border-slate-800 bg-slate-900/90 backdrop-blur-md">
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -345,12 +345,12 @@ export default function ChatbotPage() {
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
             placeholder="Ask anything (e.g. Will Vijayawada be crowded on Oct 20? Suggest alternative dates...)"
-            className="flex-1 px-4 py-3 rounded-2xl bg-[#FFFDF8] border border-[#F2DECC] text-sm text-[#34261F] placeholder-[#A08573] focus:outline-none focus:border-[#FF7657] transition-colors shadow-inner font-medium"
+            className="flex-1 px-4 py-3 rounded-2xl bg-slate-950/80 border border-slate-700 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors shadow-inner font-medium"
           />
           <button
             type="submit"
             disabled={!inputText.trim() || loading}
-            className="p-3 rounded-2xl bg-gradient-to-r from-[#FF7657] to-[#FF9F43] hover:from-[#FF603B] hover:to-[#FF8E26] text-white font-bold disabled:opacity-50 transition-all shadow-md shadow-[#FF7657]/30 cursor-pointer"
+            className="p-3 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold disabled:opacity-50 transition-all shadow-lg shadow-cyan-500/20 cursor-pointer"
           >
             <Send className="w-5 h-5" />
           </button>
@@ -359,4 +359,3 @@ export default function ChatbotPage() {
     </div>
   );
 }
-

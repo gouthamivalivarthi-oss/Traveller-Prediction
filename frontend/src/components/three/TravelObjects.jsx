@@ -17,10 +17,10 @@ export default function TravelObjects({ type = 'compass', className = '', size =
 
   return (
     <div
-      className={`relative inline-flex items-center justify-center p-3 rounded-2xl bg-gradient-to-tr from-[#FFFDF8] to-[#FFF1DD] border border-[#FF9F43]/30 shadow-[0_8px_20px_-4px_rgba(255,159,67,0.25)] hover:rotate-6 hover:scale-110 transition-all duration-300 ${className}`}
+      className={`relative inline-flex items-center justify-center p-3 rounded-2xl bg-gradient-to-tr from-slate-900 to-slate-800 border border-slate-750 border-blue-500/25 shadow-lg shadow-blue-500/15 hover:rotate-6 hover:scale-110 transition-all duration-300 ${className}`}
     >
-      <IconComponent className="text-[#FF7657]" size={size} />
-      <div className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-[#FFC857] shadow-sm animate-pulse" />
+      <IconComponent className="text-cyan-400" size={size} />
+      <div className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-blue-500 shadow-sm animate-pulse" />
     </div>
   );
 }

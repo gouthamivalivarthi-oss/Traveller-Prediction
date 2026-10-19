@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Bot, Send, Sparkles, X, RefreshCw } from 'lucide-react';
+import { Bot, Send, Sparkles, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import MessageBubble from './MessageBubble';
 import { sendChatMessage } from '../../services/api';
@@ -91,27 +91,27 @@ export default function TravelAIChat({ isOpen, onClose }) {
   };
 
   return (
-    <div className="fixed bottom-24 right-6 z-50 w-[95vw] max-w-md h-[560px] rounded-3xl glass-panel-warm border border-[#FF7657]/40 shadow-2xl flex flex-col overflow-hidden animate-scaleUp">
-      {/* 1. Header (Section 10) */}
-      <div className="p-4 border-b border-[#FF9F43]/30 bg-gradient-to-r from-[#FFFDF8] to-[#FFF1DD] flex items-center justify-between">
+    <div className="fixed bottom-24 right-6 z-50 w-[95vw] max-w-md h-[560px] rounded-3xl bg-[#0B1120]/95 backdrop-blur-2xl border border-slate-700/80 shadow-2xl flex flex-col overflow-hidden animate-scaleUp">
+      {/* 1. Header */}
+      <div className="p-4 border-b border-slate-800 bg-slate-900/90 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-2xl bg-gradient-to-tr from-[#FF7657] to-[#FF9F43] flex items-center justify-center text-white shadow-md shadow-[#FF7657]/30">
+          <div className="w-9 h-9 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white shadow-md shadow-blue-500/25">
             <Bot className="w-5 h-5" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h3 className="font-extrabold text-[#34261F] text-sm">✦ Travel AI</h3>
-              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#7BC67B]/20 text-[#5A4032] border border-[#7BC67B]/40">
+              <h3 className="font-extrabold text-white text-sm">✦ Travel AI</h3>
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
                 Online
               </span>
             </div>
-            <p className="text-[11px] text-[#8C7162]">Your intelligent journey companion</p>
+            <p className="text-[11px] text-slate-400">Your intelligent journey companion</p>
           </div>
         </div>
 
         <button
           onClick={onClose}
-          className="p-1.5 rounded-xl text-[#8C7162] hover:text-[#34261F] hover:bg-[#FFF8ED] transition-colors"
+          className="p-1.5 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>
@@ -124,8 +124,8 @@ export default function TravelAIChat({ isOpen, onClose }) {
         ))}
 
         {loading && (
-          <div className="flex items-center gap-2 p-3 rounded-2xl glass-panel-cream text-xs text-[#5A4032]">
-            <span className="w-2 h-2 rounded-full bg-[#FF7657] animate-ping" />
+          <div className="flex items-center gap-2 p-3 rounded-2xl bg-slate-900/80 border border-slate-800 text-xs text-slate-300">
+            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
             <span>Consulting holiday engine & multi-factor ML models...</span>
           </div>
         )}
@@ -133,7 +133,7 @@ export default function TravelAIChat({ isOpen, onClose }) {
       </div>
 
       {/* 3. Input Form */}
-      <div className="p-3 border-t border-[#FF9F43]/30 bg-[#FFFDF8]">
+      <div className="p-3 border-t border-slate-800 bg-slate-900/90">
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -146,12 +146,12 @@ export default function TravelAIChat({ isOpen, onClose }) {
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
             placeholder="Ask anything (e.g. Will Vijayawada be crowded on Oct 20?)"
-            className="flex-1 px-3.5 py-2.5 rounded-xl bg-[#FFF8ED] border border-[#FF9F43]/30 text-xs font-semibold text-[#34261F] placeholder-[#8C7162] focus:outline-none focus:border-[#FF7657]"
+            className="flex-1 px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-xs font-semibold text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
           />
           <button
             type="submit"
             disabled={!inputText.trim() || loading}
-            className="p-2.5 rounded-xl bg-gradient-to-r from-[#FF7657] to-[#FF9F43] hover:from-[#FF6347] hover:to-[#FF8C00] text-white disabled:opacity-50 transition-all shadow-md shadow-[#FF7657]/30 cursor-pointer"
+            className="p-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white disabled:opacity-50 transition-all shadow-md shadow-blue-500/25 cursor-pointer"
           >
             <Send className="w-4 h-4" />
           </button>

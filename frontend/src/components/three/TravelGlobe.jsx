@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { Plane, Compass, Globe2, Radio, Wind, Sparkles, MapPin, ArrowRight, Clock, Navigation } from 'lucide-react';
+import { Plane, Compass, Globe2, Radio, Navigation } from 'lucide-react';
 
 // Predefined corridors with geographical and travel telemetry
 const CORRIDORS = [
@@ -100,7 +100,6 @@ export default function TravelGlobe({
   const containerRef = useRef(null);
   const [activeCorridor, setActiveCorridor] = useState(CORRIDORS[0]);
   const [viewMode, setViewMode] = useState('corridor'); // 'corridor' | 'globe' | 'radar'
-  const [hoveredNode, setHoveredNode] = useState(null);
 
   // Sync corridor selection when props change
   useEffect(() => {
@@ -121,7 +120,6 @@ export default function TravelGlobe({
     let scene, camera, renderer, controls, animFrameId;
     let mainGroup = new THREE.Group();
     let planeMesh, curvePath;
-    let particleSystem;
     let flightProgress = 0;
 
     const width = containerRef.current.clientWidth || 600;
@@ -144,16 +142,16 @@ export default function TravelGlobe({
       containerRef.current.innerHTML = '';
       containerRef.current.appendChild(renderer.domElement);
 
-      // Studio Lighting (Warm Terracotta & Sunlight)
-      const ambientLight = new THREE.AmbientLight(0xfff8ed, 1.4);
+      // Studio Lighting (Cool Deep Slate, Cyan, and Sapphire Moonlight)
+      const ambientLight = new THREE.AmbientLight(0x1e293b, 2.2);
       scene.add(ambientLight);
 
-      const sunLight = new THREE.DirectionalLight(0xff9f43, 2.2);
+      const sunLight = new THREE.DirectionalLight(0x38bdf8, 2.5);
       sunLight.position.set(12, 18, 14);
       sunLight.castShadow = true;
       scene.add(sunLight);
 
-      const rimLight = new THREE.DirectionalLight(0xffc857, 1.6);
+      const rimLight = new THREE.DirectionalLight(0x818cf8, 1.8);
       rimLight.position.set(-14, 10, -10);
       scene.add(rimLight);
 
@@ -172,7 +170,7 @@ export default function TravelGlobe({
 
       if (viewMode === 'corridor') {
         // ---------------------------------------------------------------------
-        // MODE 1: 3D PERSPECTIVE FLIGHT CORRIDOR (Cinematic Trajectory)
+        // MODE 1: 3D PERSPECTIVE FLIGHT CORRIDOR (Executive Cyber Blue)
         // ---------------------------------------------------------------------
         camera.position.set(0, 7.5, 14);
         controls.target.set(0, 1.2, 0);
@@ -180,47 +178,47 @@ export default function TravelGlobe({
         controls.maxDistance = 24;
         controls.maxPolarAngle = Math.PI / 2.1; // Don't go below ground
 
-        // Ground Plane (Warm Cartographic Grid)
+        // Ground Plane (Deep Navy Slate Cartographic Grid)
         const gridGeo = new THREE.PlaneGeometry(24, 16, 24, 16);
         const gridMat = new THREE.MeshStandardMaterial({
-          color: 0xfffdf8,
-          roughness: 0.9,
-          metalness: 0.1
+          color: 0x0f172a,
+          roughness: 0.8,
+          metalness: 0.2
         });
         const ground = new THREE.Mesh(gridGeo, gridMat);
         ground.rotation.x = -Math.PI / 2;
         ground.receiveShadow = true;
         mainGroup.add(ground);
 
-        // Grid lines overlay
-        const gridHelper = new THREE.GridHelper(24, 24, 0xff7657, 0xf2decc);
+        // Grid lines overlay in electric blue and slate
+        const gridHelper = new THREE.GridHelper(24, 24, 0x3b82f6, 0x1e293b);
         gridHelper.position.y = 0.02;
         mainGroup.add(gridHelper);
 
         // Origin Terminal Platform (Hyderabad)
         const originPlatformGeo = new THREE.CylinderGeometry(1.2, 1.3, 0.25, 24);
-        const originPlatformMat = new THREE.MeshStandardMaterial({ color: 0xff7657, roughness: 0.3 });
+        const originPlatformMat = new THREE.MeshStandardMaterial({ color: 0x2563eb, roughness: 0.3, metalness: 0.4 });
         const originPlatform = new THREE.Mesh(originPlatformGeo, originPlatformMat);
         originPlatform.position.set(-5, 0.12, 0);
         mainGroup.add(originPlatform);
 
         // Origin Beacon Tower
         const originTowerGeo = new THREE.CylinderGeometry(0.15, 0.25, 1.4, 12);
-        const towerMat = new THREE.MeshStandardMaterial({ color: 0x34261f, metalness: 0.8, roughness: 0.2 });
+        const towerMat = new THREE.MeshStandardMaterial({ color: 0x334155, metalness: 0.8, roughness: 0.2 });
         const originTower = new THREE.Mesh(originTowerGeo, towerMat);
         originTower.position.set(-5, 0.8, 0);
         mainGroup.add(originTower);
 
         // Beacon Glowing Sphere
         const beaconLightGeo = new THREE.SphereGeometry(0.25, 16, 16);
-        const beaconLightMat = new THREE.MeshBasicMaterial({ color: 0xff7657 });
+        const beaconLightMat = new THREE.MeshBasicMaterial({ color: 0x38bdf8 });
         const originBeacon = new THREE.Mesh(beaconLightGeo, beaconLightMat);
         originBeacon.position.set(-5, 1.6, 0);
         mainGroup.add(originBeacon);
 
         // Destination Terminal Platform (Vijayawada)
         const destPlatformGeo = new THREE.CylinderGeometry(1.2, 1.3, 0.25, 24);
-        const destPlatformMat = new THREE.MeshStandardMaterial({ color: 0x7bc67b, roughness: 0.3 });
+        const destPlatformMat = new THREE.MeshStandardMaterial({ color: 0x10b981, roughness: 0.3, metalness: 0.4 });
         const destPlatform = new THREE.Mesh(destPlatformGeo, destPlatformMat);
         destPlatform.position.set(5, 0.12, 0);
         mainGroup.add(destPlatform);
@@ -231,14 +229,14 @@ export default function TravelGlobe({
         mainGroup.add(destTower);
 
         // Destination Glowing Sphere
-        const destBeaconMat = new THREE.MeshBasicMaterial({ color: 0x7bc67b });
+        const destBeaconMat = new THREE.MeshBasicMaterial({ color: 0x10b981 });
         const destBeacon = new THREE.Mesh(beaconLightGeo, destBeaconMat);
         destBeacon.position.set(5, 1.6, 0);
         mainGroup.add(destBeacon);
 
         // En-route Waypoints (Suryapet & Nalgonda Corridor)
         const waypointGeo = new THREE.CylinderGeometry(0.5, 0.5, 0.08, 16);
-        const waypointMat = new THREE.MeshBasicMaterial({ color: 0xffc857, transparent: true, opacity: 0.6 });
+        const waypointMat = new THREE.MeshBasicMaterial({ color: 0x06b6d4, transparent: true, opacity: 0.7 });
         const wp1 = new THREE.Mesh(waypointGeo, waypointMat);
         wp1.position.set(-1.8, 0.05, 0.4);
         mainGroup.add(wp1);
@@ -256,7 +254,7 @@ export default function TravelGlobe({
         const arcPoints = curvePath.getPoints(60);
         const arcGeo = new THREE.BufferGeometry().setFromPoints(arcPoints);
         const arcMat = new THREE.LineDashedMaterial({
-          color: 0xff7657,
+          color: 0x38bdf8,
           linewidth: 3,
           scale: 1,
           dashSize: 0.4,
@@ -276,7 +274,7 @@ export default function TravelGlobe({
         const shadowGeo = new THREE.BufferGeometry().setFromPoints(shadowPoints);
         const shadowLine = new THREE.Line(
           shadowGeo,
-          new THREE.LineBasicMaterial({ color: 0xe0ccba, linewidth: 2 })
+          new THREE.LineBasicMaterial({ color: 0x1e293b, linewidth: 2 })
         );
         mainGroup.add(shadowLine);
 
@@ -287,7 +285,7 @@ export default function TravelGlobe({
         const fuseGeo = new THREE.ConeGeometry(0.22, 1.1, 12);
         const fuseMat = new THREE.MeshStandardMaterial({
           color: 0xffffff,
-          metalness: 0.7,
+          metalness: 0.8,
           roughness: 0.2
         });
         const fuse = new THREE.Mesh(fuseGeo, fuseMat);
@@ -296,7 +294,7 @@ export default function TravelGlobe({
 
         // Main Swept Wings
         const wingsGeo = new THREE.BoxGeometry(1.6, 0.03, 0.35);
-        const wingsMat = new THREE.MeshStandardMaterial({ color: 0xff7657, roughness: 0.3 });
+        const wingsMat = new THREE.MeshStandardMaterial({ color: 0x2563eb, roughness: 0.3, metalness: 0.6 });
         const wings = new THREE.Mesh(wingsGeo, wingsMat);
         wings.position.set(0, 0, -0.1);
         planeGroup.add(wings);
@@ -309,7 +307,7 @@ export default function TravelGlobe({
 
         // Twin Jet Engines
         const engineGeo = new THREE.CylinderGeometry(0.08, 0.08, 0.35, 8);
-        const engineMat = new THREE.MeshStandardMaterial({ color: 0x34261f, metalness: 0.9 });
+        const engineMat = new THREE.MeshStandardMaterial({ color: 0x0f172a, metalness: 0.9 });
         const engL = new THREE.Mesh(engineGeo, engineMat);
         engL.rotation.x = Math.PI / 2;
         engL.position.set(-0.4, -0.06, -0.1);
@@ -322,7 +320,7 @@ export default function TravelGlobe({
 
         // Jet Exhaust Light Glow
         const exhaustGeo = new THREE.SphereGeometry(0.06, 8, 8);
-        const exhaustMat = new THREE.MeshBasicMaterial({ color: 0xff9f43 });
+        const exhaustMat = new THREE.MeshBasicMaterial({ color: 0x38bdf8 });
         const exhaustL = new THREE.Mesh(exhaustGeo, exhaustMat);
         exhaustL.position.set(-0.4, -0.06, -0.28);
         planeGroup.add(exhaustL);
@@ -332,25 +330,9 @@ export default function TravelGlobe({
 
         planeMesh = planeGroup;
         mainGroup.add(planeMesh);
-
-        // Floating Low-Poly 3D Clouds in Sky
-        const cloudGroup = new THREE.Group();
-        for (let i = 0; i < 4; i++) {
-          const cGeo = new THREE.DodecahedronGeometry(0.6 + (i % 2) * 0.3, 1);
-          const cMat = new THREE.MeshStandardMaterial({
-            color: 0xfff9f2,
-            roughness: 0.9,
-            transparent: true,
-            opacity: 0.85
-          });
-          const cloud = new THREE.Mesh(cGeo, cMat);
-          cloud.position.set(-4 + i * 2.8, 3.8 + (i % 2) * 0.8, -1.5 + (i % 3));
-          cloudGroup.add(cloud);
-        }
-        mainGroup.add(cloudGroup);
       } else if (viewMode === 'globe') {
         // ---------------------------------------------------------------------
-        // MODE 2: 3D WORLD GLOBE (Full Centered Sphere, Zero Cut-offs)
+        // MODE 2: 3D WORLD GLOBE (Deep Oceanic Slate & Neon Cyan Corridors)
         // ---------------------------------------------------------------------
         camera.position.set(0, 0, 16);
         controls.target.set(0, 0, 0);
@@ -367,12 +349,12 @@ export default function TravelGlobe({
         canvas.height = 1024;
         const ctx = canvas.getContext('2d');
 
-        // Ocean Background
-        ctx.fillStyle = '#FFF8ED';
+        // Deep Oceanic Background
+        ctx.fillStyle = '#0B1120';
         ctx.fillRect(0, 0, 2048, 1024);
 
         // Cartographic Meridian & Parallel Grid Lines
-        ctx.strokeStyle = '#F2DECC';
+        ctx.strokeStyle = '#1E293B';
         ctx.lineWidth = 1;
         for (let x = 0; x <= 2048; x += 128) {
           ctx.beginPath();
@@ -388,27 +370,25 @@ export default function TravelGlobe({
         }
 
         // Equator Highlight
-        ctx.strokeStyle = '#FFC857';
+        ctx.strokeStyle = '#2563EB';
         ctx.lineWidth = 2.5;
         ctx.beginPath();
         ctx.moveTo(0, 512);
         ctx.lineTo(2048, 512);
         ctx.stroke();
 
-        // Draw Accurate Continental Landmass Shapes
-        ctx.fillStyle = '#E6BA95'; // Warm Terracotta Continent Fill
-        ctx.strokeStyle = '#D99B6C';
+        // Draw Continental Landmass Shapes in Modern Dark Slate
+        ctx.fillStyle = '#1E293B';
+        ctx.strokeStyle = '#334155';
         ctx.lineWidth = 2;
 
         // India & South Asia detailed polygon
-        ctx.beginPath();
-        // India bounds approx: Lon 68 to 90, Lat 8 to 35
-        // x = (lon + 180)/360 * 2048, y = (90 - lat)/180 * 1024
         const indiaPoints = [
-          [68, 24], [72, 21], [73, 19], [74, 15], [76, 10], [77.5, 8.2], // West Coast
-          [79, 10], [80.3, 13], [80.6, 16.5], [83, 18], [86, 20], [88, 22], // East Coast
-          [92, 26], [88, 28], [82, 30], [77, 34], [74, 34], [70, 28] // Himalayas & North
+          [68, 24], [72, 21], [73, 19], [74, 15], [76, 10], [77.5, 8.2],
+          [79, 10], [80.3, 13], [80.6, 16.5], [83, 18], [86, 20], [88, 22],
+          [92, 26], [88, 28], [82, 30], [77, 34], [74, 34], [70, 28]
         ];
+        ctx.beginPath();
         indiaPoints.forEach(([lon, lat], idx) => {
           const px = ((lon + 180) / 360) * 2048;
           const py = ((90 - lat) / 180) * 1024;
@@ -419,7 +399,7 @@ export default function TravelGlobe({
         ctx.fill();
         ctx.stroke();
 
-        // Asia / Eurasia continent
+        // Eurasia
         ctx.beginPath();
         const asiaPoints = [
           [40, 40], [60, 50], [90, 60], [120, 65], [140, 55], [130, 35],
@@ -451,52 +431,25 @@ export default function TravelGlobe({
         ctx.fill();
         ctx.stroke();
 
-        // Europe
-        ctx.beginPath();
-        const europePoints = [
-          [-10, 36], [0, 42], [15, 55], [30, 60], [40, 45], [20, 38], [0, 36]
-        ];
-        europePoints.forEach(([lon, lat], idx) => {
-          const px = ((lon + 180) / 360) * 2048;
-          const py = ((90 - lat) / 180) * 1024;
-          if (idx === 0) ctx.moveTo(px, py);
-          else ctx.lineTo(px, py);
-        });
-        ctx.closePath();
-        ctx.fill();
-        ctx.stroke();
-
-        // Americas & Australia
-        ctx.beginPath();
-        const australiaPoints = [[115, -20], [150, -22], [145, -38], [118, -35]];
-        australiaPoints.forEach(([lon, lat], idx) => {
-          const px = ((lon + 180) / 360) * 2048;
-          const py = ((90 - lat) / 180) * 1024;
-          if (idx === 0) ctx.moveTo(px, py);
-          else ctx.lineTo(px, py);
-        });
-        ctx.closePath();
-        ctx.fill();
-        ctx.stroke();
-
         // City light beacons on texture
-        ctx.fillStyle = '#FF7657';
+        ctx.fillStyle = '#38BDF8';
         // Hyderabad
         ctx.beginPath();
-        ctx.arc(((78.48 + 180) / 360) * 2048, ((90 - 17.38) / 180) * 1024, 7, 0, Math.PI * 2);
+        ctx.arc(((78.48 + 180) / 360) * 2048, ((90 - 17.38) / 180) * 1024, 8, 0, Math.PI * 2);
         ctx.fill();
 
         // Vijayawada
+        ctx.fillStyle = '#10B981';
         ctx.beginPath();
-        ctx.arc(((80.64 + 180) / 360) * 2048, ((90 - 16.5) / 180) * 1024, 6, 0, Math.PI * 2);
+        ctx.arc(((80.64 + 180) / 360) * 2048, ((90 - 16.5) / 180) * 1024, 7, 0, Math.PI * 2);
         ctx.fill();
 
         const earthTexture = new THREE.CanvasTexture(canvas);
         const globeGeo = new THREE.SphereGeometry(GLOBE_RADIUS, 64, 64);
         const globeMat = new THREE.MeshStandardMaterial({
           map: earthTexture,
-          roughness: 0.6,
-          metalness: 0.1
+          roughness: 0.7,
+          metalness: 0.2
         });
         const globeSphere = new THREE.Mesh(globeGeo, globeMat);
         mainGroup.add(globeSphere);
@@ -504,9 +457,9 @@ export default function TravelGlobe({
         // Atmosphere Rim Glow
         const atmosGeo = new THREE.SphereGeometry(GLOBE_RADIUS * 1.03, 32, 32);
         const atmosMat = new THREE.MeshBasicMaterial({
-          color: 0xffc857,
+          color: 0x38bdf8,
           transparent: true,
-          opacity: 0.22,
+          opacity: 0.25,
           side: THREE.BackSide
         });
         const atmos = new THREE.Mesh(atmosGeo, atmosMat);
@@ -517,12 +470,12 @@ export default function TravelGlobe({
         const vjaPos = latLongToVector3(16.5062, 80.648, GLOBE_RADIUS, 0.1);
 
         const pinGeo = new THREE.SphereGeometry(0.18, 12, 12);
-        const pinMatHyd = new THREE.MeshBasicMaterial({ color: 0xff7657 });
+        const pinMatHyd = new THREE.MeshBasicMaterial({ color: 0x38bdf8 });
         const hydPin = new THREE.Mesh(pinGeo, pinMatHyd);
         hydPin.position.copy(hydPos);
         mainGroup.add(hydPin);
 
-        const pinMatVja = new THREE.MeshBasicMaterial({ color: 0x7bc67b });
+        const pinMatVja = new THREE.MeshBasicMaterial({ color: 0x10b981 });
         const vjaPin = new THREE.Mesh(pinGeo, pinMatVja);
         vjaPin.position.copy(vjaPos);
         mainGroup.add(vjaPin);
@@ -534,7 +487,7 @@ export default function TravelGlobe({
         const cPoints = curvePath.getPoints(50);
         const cGeo = new THREE.BufferGeometry().setFromPoints(cPoints);
         const cMat = new THREE.LineDashedMaterial({
-          color: 0xff7657,
+          color: 0x38bdf8,
           dashSize: 0.3,
           gapSize: 0.15,
           linewidth: 2
@@ -548,7 +501,7 @@ export default function TravelGlobe({
         mainGroup.rotation.x = 0.22;
       } else {
         // ---------------------------------------------------------------------
-        // MODE 3: TRANSIT CONGESTION RADAR (Sweep Screen)
+        // MODE 3: TRANSIT CONGESTION RADAR (Clean Tactical Neon Sweep)
         // ---------------------------------------------------------------------
         camera.position.set(0, 0, 14);
         controls.target.set(0, 0, 0);
@@ -557,7 +510,7 @@ export default function TravelGlobe({
         // Circular Radar Ring
         const radarGeo = new THREE.RingGeometry(1.5, 5.5, 64);
         const radarMat = new THREE.MeshBasicMaterial({
-          color: 0xfff8ed,
+          color: 0x0f172a,
           side: THREE.DoubleSide
         });
         const radarMesh = new THREE.Mesh(radarGeo, radarMat);
@@ -566,14 +519,14 @@ export default function TravelGlobe({
         // Concentric Circles
         for (let r = 1.5; r <= 5.5; r += 1.3) {
           const ringGeo = new THREE.RingGeometry(r - 0.03, r, 64);
-          const ringMat = new THREE.MeshBasicMaterial({ color: 0xff9f43, side: THREE.DoubleSide });
+          const ringMat = new THREE.MeshBasicMaterial({ color: 0x1e3a8a, side: THREE.DoubleSide });
           const ring = new THREE.Mesh(ringGeo, ringMat);
           mainGroup.add(ring);
         }
 
         // Crosshairs
         const crossGeoH = new THREE.PlaneGeometry(11, 0.04);
-        const crossMat = new THREE.MeshBasicMaterial({ color: 0xf2decc });
+        const crossMat = new THREE.MeshBasicMaterial({ color: 0x334155 });
         const crossH = new THREE.Mesh(crossGeoH, crossMat);
         mainGroup.add(crossH);
 
@@ -583,7 +536,7 @@ export default function TravelGlobe({
 
         // Rotating Sweep Line
         const sweepGeo = new THREE.PlaneGeometry(5.5, 0.08);
-        const sweepMat = new THREE.MeshBasicMaterial({ color: 0xff7657, transparent: true, opacity: 0.8 });
+        const sweepMat = new THREE.MeshBasicMaterial({ color: 0x38bdf8, transparent: true, opacity: 0.85 });
         const sweepLine = new THREE.Mesh(sweepGeo, sweepMat);
         sweepLine.position.x = 2.75;
         const sweepPivot = new THREE.Group();
@@ -592,15 +545,15 @@ export default function TravelGlobe({
 
         // Pulse Hotspots for Transit Corridors
         const spotGeo = new THREE.CircleGeometry(0.3, 16);
-        const spot1 = new THREE.Mesh(spotGeo, new THREE.MeshBasicMaterial({ color: 0xff7657 }));
+        const spot1 = new THREE.Mesh(spotGeo, new THREE.MeshBasicMaterial({ color: 0x38bdf8 }));
         spot1.position.set(2.2, 1.4, 0.05); // Air corridor: High demand
         mainGroup.add(spot1);
 
-        const spot2 = new THREE.Mesh(spotGeo, new THREE.MeshBasicMaterial({ color: 0xff9f43 }));
+        const spot2 = new THREE.Mesh(spotGeo, new THREE.MeshBasicMaterial({ color: 0x818cf8 }));
         spot2.position.set(-1.8, 2.5, 0.05); // Road NH65
         mainGroup.add(spot2);
 
-        const spot3 = new THREE.Mesh(spotGeo, new THREE.MeshBasicMaterial({ color: 0x7bc67b }));
+        const spot3 = new THREE.Mesh(spotGeo, new THREE.MeshBasicMaterial({ color: 0x10b981 }));
         spot3.position.set(1.0, -3.2, 0.05); // Rail
         mainGroup.add(spot3);
 
@@ -674,36 +627,36 @@ export default function TravelGlobe({
   };
 
   return (
-    <div className="relative w-full rounded-3xl bg-[#FFFDF8] border border-[#F2DECC] shadow-xl overflow-hidden flex flex-col justify-between">
+    <div className="relative w-full rounded-3xl bg-[#0F172A] border border-slate-800 shadow-2xl overflow-hidden flex flex-col justify-between">
       {/* 1. Interactive Header Bar with Mode Switcher & Live Corridor Badge */}
-      <div className="p-4 border-b border-[#F2DECC] bg-gradient-to-r from-[#FFFDF8] to-[#FFF1DD] flex flex-wrap items-center justify-between gap-3 relative z-20">
+      <div className="p-4 border-b border-slate-800/80 bg-slate-900/90 flex flex-wrap items-center justify-between gap-3 relative z-20">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#FF7657] to-[#FF9F43] flex items-center justify-center text-white shadow-xs">
+          <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white shadow-xs">
             <Plane className="w-4 h-4" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-black text-sm text-[#34261F]">
+              <span className="font-extrabold text-sm text-white">
                 {activeCorridor.origin} ✈ {activeCorridor.destination}
               </span>
-              <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-[#FF7657]/15 text-[#FF7657] border border-[#FF7657]/30">
+              <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-blue-500/15 text-cyan-400 border border-blue-500/30">
                 {activeCorridor.crowdLevel} {activeCorridor.demandScore}%
               </span>
             </div>
-            <span className="text-[11px] text-[#7A5843] font-medium block">
+            <span className="text-[11px] text-slate-400 font-medium block">
               {activeCorridor.festival} • {activeCorridor.distanceKm} km
             </span>
           </div>
         </div>
 
         {/* 3D Mode Switcher Tabs */}
-        <div className="flex items-center gap-1 p-1 rounded-2xl bg-[#FFF8ED] border border-[#F2DECC] text-xs font-bold shadow-xs">
+        <div className="flex items-center gap-1 p-1 rounded-2xl bg-slate-950/80 border border-slate-800 text-xs font-bold shadow-xs">
           <button
             onClick={() => setViewMode('corridor')}
             className={`px-3 py-1.5 rounded-xl transition-all flex items-center gap-1.5 cursor-pointer ${
               viewMode === 'corridor'
-                ? 'bg-gradient-to-r from-[#FF7657] to-[#FF9F43] text-white shadow-xs'
-                : 'text-[#7A5843] hover:text-[#34261F]'
+                ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-md shadow-blue-500/25'
+                : 'text-slate-400 hover:text-white'
             }`}
           >
             <Navigation className="w-3.5 h-3.5" />
@@ -714,8 +667,8 @@ export default function TravelGlobe({
             onClick={() => setViewMode('globe')}
             className={`px-3 py-1.5 rounded-xl transition-all flex items-center gap-1.5 cursor-pointer ${
               viewMode === 'globe'
-                ? 'bg-gradient-to-r from-[#FF7657] to-[#FF9F43] text-white shadow-xs'
-                : 'text-[#7A5843] hover:text-[#34261F]'
+                ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-md shadow-blue-500/25'
+                : 'text-slate-400 hover:text-white'
             }`}
           >
             <Globe2 className="w-3.5 h-3.5" />
@@ -726,8 +679,8 @@ export default function TravelGlobe({
             onClick={() => setViewMode('radar')}
             className={`px-3 py-1.5 rounded-xl transition-all flex items-center gap-1.5 cursor-pointer ${
               viewMode === 'radar'
-                ? 'bg-gradient-to-r from-[#FF7657] to-[#FF9F43] text-white shadow-xs'
-                : 'text-[#7A5843] hover:text-[#34261F]'
+                ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-md shadow-blue-500/25'
+                : 'text-slate-400 hover:text-white'
             }`}
           >
             <Radio className="w-3.5 h-3.5" />
@@ -745,40 +698,40 @@ export default function TravelGlobe({
 
       {/* 3. Floating 3D Telemetry Overlay Badges */}
       <div className="absolute top-20 left-4 z-10 pointer-events-none hidden sm:block">
-        <div className="p-3 rounded-2xl bg-[#FFFDF8]/95 border border-[#F2DECC] shadow-lg space-y-1">
-          <span className="text-[10px] font-bold uppercase tracking-wider text-[#7A5843] block">
+        <div className="p-3 rounded-2xl bg-slate-900/90 border border-slate-700/80 shadow-2xl backdrop-blur-md space-y-1">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
             Corridor Telemetry
           </span>
           <div className="flex items-center gap-3 text-xs">
-            <span className="font-black text-[#34261F]">
+            <span className="font-extrabold text-white">
               Air: <strong>{activeCorridor.airTime}</strong>
             </span>
-            <span className="text-[#F2DECC]">|</span>
-            <span className="text-[#5A4032] font-semibold">
+            <span className="text-slate-600">|</span>
+            <span className="text-slate-300 font-semibold">
               Ground: <strong>{activeCorridor.trainTime}</strong>
             </span>
           </div>
-          <span className="text-[11px] text-[#7BC67B] font-bold block">
+          <span className="text-[11px] text-emerald-400 font-bold block">
             Weather: {activeCorridor.weather}
           </span>
         </div>
       </div>
 
       <div className="absolute bottom-16 right-4 z-10 pointer-events-none hidden sm:block max-w-[210px]">
-        <div className="p-3 rounded-2xl bg-[#FFFDF8]/95 border border-[#F2DECC] shadow-lg space-y-1">
-          <span className="text-[10px] font-bold uppercase tracking-wider text-[#7BC67B] block">
+        <div className="p-3 rounded-2xl bg-slate-900/90 border border-slate-700/80 shadow-2xl backdrop-blur-md space-y-1">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-400 block">
             AI Smart Re-Route
           </span>
-          <p className="text-[11px] text-[#5A4032] font-semibold leading-tight">
-            Departing on <strong>Oct 18 or 22</strong> reduces crowd congestion by <strong>35%</strong>.
+          <p className="text-[11px] text-slate-300 font-semibold leading-tight">
+            Departing on <strong className="text-white">Oct 18 or 22</strong> reduces crowd congestion by <strong className="text-emerald-400">35%</strong>.
           </p>
         </div>
       </div>
 
       {/* 4. Bottom Corridor Quick Switcher */}
-      <div className="p-3 border-t border-[#F2DECC] bg-[#FFF8ED]/90 backdrop-blur-md flex flex-wrap items-center justify-between gap-2 z-20 text-xs">
-        <span className="text-[11px] font-bold text-[#7A5843] flex items-center gap-1">
-          <Compass className="w-3.5 h-3.5 text-[#FF7657]" />
+      <div className="p-3 border-t border-slate-800 bg-slate-900/90 backdrop-blur-md flex flex-wrap items-center justify-between gap-2 z-20 text-xs">
+        <span className="text-[11px] font-bold text-slate-400 flex items-center gap-1">
+          <Compass className="w-3.5 h-3.5 text-cyan-400" />
           Quick Corridors:
         </span>
 
@@ -789,8 +742,8 @@ export default function TravelGlobe({
               onClick={() => handleSelectCorridor(c)}
               className={`px-2.5 py-1 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                 activeCorridor.id === c.id
-                  ? 'bg-gradient-to-r from-[#FF7657] to-[#FF9F43] text-white shadow-xs'
-                  : 'bg-[#FFFDF8] text-[#5A4032] border border-[#F2DECC] hover:bg-[#FDE7D3]'
+                  ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-xs'
+                  : 'bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700 hover:text-white'
               }`}
             >
               {c.originCode} ✈ {c.destinationCode}

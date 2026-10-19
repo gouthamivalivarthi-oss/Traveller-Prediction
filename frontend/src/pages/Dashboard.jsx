@@ -3,18 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import {
   Sparkles,
   TrendingUp,
-  AlertTriangle,
-  Clock,
-  DollarSign,
   Compass,
   Bot,
   Calendar,
-  MapPin,
-  ChevronRight,
-  ShieldCheck,
-  Plane,
-  ArrowRight,
-  CheckCircle2
+  ChevronRight
 } from 'lucide-react';
 import {
   AreaChart,
@@ -104,13 +96,13 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-10 pb-20">
-      {/* 1. Header (Section 6: Good Morning, Traveler 👋 Plan smarter. Travel better.) */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#FF9F43]/20 pb-4">
+      {/* 1. Header */}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-black text-[#34261F] tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
             Good Morning, {user?.name || 'Traveler'} 👋
           </h1>
-          <p className="text-xs sm:text-sm text-[#5A4032] mt-1 font-medium">
+          <p className="text-xs sm:text-sm text-slate-400 mt-1 font-medium">
             Plan smarter. Travel better. Real-time pre-journey forecasting platform.
           </p>
         </div>
@@ -118,14 +110,14 @@ export default function Dashboard() {
         <div className="flex items-center gap-3">
           <button
             onClick={() => navigate('/chatbot')}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl glass-panel-warm hover:border-[#FF7657] text-[#34261F] text-xs font-bold transition-all shadow-sm cursor-pointer"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-500/60 text-slate-200 text-xs font-bold transition-all shadow-sm cursor-pointer"
           >
-            <Bot className="w-4 h-4 text-[#FF7657]" />
+            <Bot className="w-4 h-4 text-cyan-400" />
             <span>AI Assistant</span>
           </button>
           <button
             onClick={() => navigate('/predict')}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#FF7657] to-[#FF9F43] text-white text-xs font-bold shadow-md shadow-[#FF7657]/30 transition-all hover:scale-105 cursor-pointer"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-xs font-bold shadow-md shadow-blue-500/25 transition-all hover:scale-105 cursor-pointer"
           >
             <Sparkles className="w-4 h-4" />
             <span>Full Prediction</span>
@@ -133,23 +125,23 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* 2. Stunning 3D Hero Section (Section 4 & 5) */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center rounded-3xl glass-panel-warm p-6 sm:p-10 border border-[#FF9F43]/30 shadow-xl relative overflow-hidden bg-gradient-to-br from-[#FFFDF8] via-[#FFF8ED] to-[#FFF1DD]">
+      {/* 2. Stunning 3D Hero Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center rounded-3xl glass-panel p-6 sm:p-10 border border-slate-800 shadow-2xl relative overflow-hidden bg-gradient-to-br from-[#0F172A] via-[#0E1626] to-[#0A0F1D]">
         {/* Left Side: Headline & Quick Actions */}
         <div className="lg:col-span-6 space-y-6 relative z-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FF9F43]/15 text-[#FF7657] text-xs font-extrabold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/15 text-cyan-400 text-xs font-extrabold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5" />
             3D Intelligent Travel Forecasting
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-black text-[#34261F] tracking-tight leading-[1.15]">
+          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-[1.15]">
             Travel Smarter.{' '}
-            <span className="bg-gradient-to-r from-[#FF7657] to-[#FF9F43] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-400 bg-clip-text text-transparent">
               Predict Before You Go.
             </span>
           </h2>
 
-          <p className="text-[#5A4032] text-sm sm:text-base font-medium leading-relaxed max-w-lg">
+          <p className="text-slate-300 text-sm sm:text-base font-medium leading-relaxed max-w-lg">
             AI-powered travel prediction for smarter dates, safer journeys and better travel decisions.
             Evaluating holiday surges, historical demand, and delay probabilities across transit corridors.
           </p>
@@ -168,30 +160,30 @@ export default function Dashboard() {
 
             <button
               onClick={() => navigate('/chatbot')}
-              className="px-5 py-3 rounded-2xl glass-panel-warm border border-[#FF9F43]/30 hover:border-[#FF7657] text-[#34261F] font-bold text-xs flex items-center gap-2 shadow-sm transition-all"
+              className="px-5 py-3 rounded-2xl bg-slate-900 border border-slate-700 hover:border-cyan-500/60 text-slate-200 font-bold text-xs flex items-center gap-2 shadow-sm transition-all"
             >
-              <Bot className="w-4 h-4 text-[#FF7657]" />
+              <Bot className="w-4 h-4 text-cyan-400" />
               <span>Ask Travel AI</span>
             </button>
           </div>
 
           <div className="grid grid-cols-3 gap-3 pt-3 text-center">
-            <div className="p-3 rounded-2xl bg-[#FFFDF8]/80 border border-[#FF9F43]/20">
-              <span className="text-lg font-black text-[#FF7657] block">95.8%</span>
-              <span className="text-[10px] font-bold text-[#8C7162]">Accuracy</span>
+            <div className="p-3 rounded-2xl bg-slate-900/90 border border-slate-800">
+              <span className="text-lg font-black text-emerald-400 block">95.8%</span>
+              <span className="text-[10px] font-bold text-slate-400">Accuracy</span>
             </div>
-            <div className="p-3 rounded-2xl bg-[#FFFDF8]/80 border border-[#FF9F43]/20">
-              <span className="text-lg font-black text-[#FF9F43] block">R² = 0.97</span>
-              <span className="text-[10px] font-bold text-[#8C7162]">Demand Score</span>
+            <div className="p-3 rounded-2xl bg-slate-900/90 border border-slate-800">
+              <span className="text-lg font-black text-cyan-400 block">R² = 0.97</span>
+              <span className="text-[10px] font-bold text-slate-400">Demand Score</span>
             </div>
-            <div className="p-3 rounded-2xl bg-[#FFFDF8]/80 border border-[#FF9F43]/20">
-              <span className="text-lg font-black text-[#7BC67B] block">10.9K+</span>
-              <span className="text-[10px] font-bold text-[#8C7162]">Corridor Samples</span>
+            <div className="p-3 rounded-2xl bg-slate-900/90 border border-slate-800">
+              <span className="text-lg font-black text-blue-400 block">10.9K+</span>
+              <span className="text-[10px] font-bold text-slate-400">Corridor Samples</span>
             </div>
           </div>
         </div>
 
-        {/* Right Side: Reusable 3D TravelGlobe Component (Section 5) */}
+        {/* Right Side: Reusable 3D TravelGlobe Component */}
         <div className="lg:col-span-6 relative flex items-center justify-center">
           <TravelGlobe
             activeOrigin={activeOrigin}
@@ -202,7 +194,7 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* 3. Main Trip Prediction Card & Result Section (Section 7, 8, 9) */}
+      {/* 3. Main Trip Prediction Card & Result Section */}
       <div id="prediction-section" className="space-y-6">
         <PredictionCard
           onPredict={handlePredict}
@@ -218,7 +210,7 @@ export default function Dashboard() {
 
       {/* 4. Multi-Dimensional Risk Radar & Corridor Area Chart */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Journey Risk 3D Visualization (Section 18) */}
+        {/* Journey Risk 3D Visualization */}
         <div className="lg:col-span-5">
           <RiskCard
             overallScore={predictionData.overall_risk_score || 62}
@@ -228,18 +220,18 @@ export default function Dashboard() {
 
         {/* Corridor Passenger Volume Chart */}
         <div className="lg:col-span-7">
-          <TiltCard className="p-6 sm:p-8 border border-[#FF9F43]/30 bg-[#FFFDF8]/90 space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#FF9F43]/20 pb-3">
+          <TiltCard className="p-6 sm:p-8 border border-slate-800 bg-[#0F172A]/90 space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800 pb-3">
               <div>
-                <h3 className="font-extrabold text-[#34261F] text-base flex items-center gap-2">
-                  <TrendingUp className="w-5 h-5 text-[#FF7657]" />
+                <h3 className="font-extrabold text-white text-base flex items-center gap-2">
+                  <TrendingUp className="w-5 h-5 text-cyan-400" />
                   Corridor Passenger Demand Trend (Oct 15 – 23)
                 </h3>
-                <p className="text-xs text-[#5A4032]">
+                <p className="text-xs text-slate-400">
                   Visualizing transit curve across Dussehra & Navaratri holiday rush
                 </p>
               </div>
-              <span className="text-xs font-black px-2.5 py-1 rounded-xl bg-[#FF7657]/15 text-[#FF7657] border border-[#FF7657]/30 self-start sm:self-auto">
+              <span className="text-xs font-black px-2.5 py-1 rounded-xl bg-blue-500/15 text-cyan-400 border border-blue-500/30 self-start sm:self-auto">
                 Peak: Oct 20 (92%)
               </span>
             </div>
@@ -248,20 +240,20 @@ export default function Dashboard() {
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={corridorTrendData}>
                   <defs>
-                    <linearGradient id="warmGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#FF7657" stopOpacity={0.6} />
-                      <stop offset="95%" stopColor="#FF9F43" stopOpacity={0.0} />
+                    <linearGradient id="coolGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#3B82F6" stopOpacity={0.6} />
+                      <stop offset="95%" stopColor="#06B6D4" stopOpacity={0.0} />
                     </linearGradient>
                   </defs>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#FDEBD4" />
-                  <XAxis dataKey="day" stroke="#8C7162" fontSize={11} tickLine={false} />
-                  <YAxis stroke="#8C7162" fontSize={11} tickLine={false} domain={[0, 100]} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#1E293B" />
+                  <XAxis dataKey="day" stroke="#64748B" fontSize={11} tickLine={false} />
+                  <YAxis stroke="#64748B" fontSize={11} tickLine={false} domain={[0, 100]} />
                   <Tooltip
                     contentStyle={{
-                      backgroundColor: '#FFFDF8',
-                      borderColor: '#FF9F43',
+                      backgroundColor: '#0F172A',
+                      borderColor: '#3B82F6',
                       borderRadius: '16px',
-                      color: '#34261F',
+                      color: '#FFFFFF',
                       fontWeight: 'bold',
                       fontSize: '12px'
                     }}
@@ -269,10 +261,10 @@ export default function Dashboard() {
                   <Area
                     type="monotone"
                     dataKey="demand"
-                    stroke="#FF7657"
+                    stroke="#38BDF8"
                     strokeWidth={3}
                     fillOpacity={1}
-                    fill="url(#warmGrad)"
+                    fill="url(#coolGrad)"
                     name="Demand Score (%)"
                   />
                 </AreaChart>
@@ -282,21 +274,21 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* 5. Upcoming 3D Holiday Cards (Section 13) */}
+      {/* 5. Upcoming High-Demand Festival Periods */}
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-xl font-black text-[#34261F] flex items-center gap-2">
-              <Calendar className="w-5 h-5 text-[#FF9F43]" />
+            <h3 className="text-xl font-black text-white flex items-center gap-2">
+              <Calendar className="w-5 h-5 text-cyan-400" />
               Upcoming High-Demand Festival Periods
             </h3>
-            <p className="text-xs text-[#5A4032]">
+            <p className="text-xs text-slate-400">
               Configured holiday engine monitoring statewide passenger movement
             </p>
           </div>
           <button
             onClick={() => navigate('/holidays')}
-            className="text-xs font-bold text-[#FF7657] hover:underline flex items-center gap-1 cursor-pointer"
+            className="text-xs font-bold text-cyan-400 hover:underline flex items-center gap-1 cursor-pointer"
           >
             <span>Full 3D Calendar</span>
             <ChevronRight className="w-4 h-4" />
@@ -337,21 +329,21 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* 6. Recent Monitored Trips (Section 20) */}
+      {/* 6. Recent Monitored Journeys */}
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-xl font-black text-[#34261F] flex items-center gap-2">
-              <Compass className="w-5 h-5 text-[#7BC67B]" />
+            <h3 className="text-xl font-black text-white flex items-center gap-2">
+              <Compass className="w-5 h-5 text-emerald-400" />
               Your Monitored Journeys
             </h3>
-            <p className="text-xs text-[#5A4032]">
+            <p className="text-xs text-slate-400">
               Continuously tracking crowd alerts and dynamic fare changes
             </p>
           </div>
           <button
             onClick={() => navigate('/trips')}
-            className="text-xs font-bold text-[#FF7657] hover:underline flex items-center gap-1 cursor-pointer"
+            className="text-xs font-bold text-cyan-400 hover:underline flex items-center gap-1 cursor-pointer"
           >
             <span>View All Trips</span>
             <ChevronRight className="w-4 h-4" />

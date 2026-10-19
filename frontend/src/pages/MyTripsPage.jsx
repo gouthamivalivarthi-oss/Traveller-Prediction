@@ -64,12 +64,12 @@ export default function MyTripsPage() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF7657]/10 border border-[#FF7657]/25 text-[#FF7657] text-xs font-bold uppercase tracking-wider mb-2">
-            <Luggage className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-wider mb-2">
+            <Luggage className="w-3.5 h-3.5 text-cyan-400" />
             3D Itinerary Manager
           </div>
-          <h1 className="text-3xl font-extrabold text-[#34261F] tracking-tight">My Trips & Itineraries</h1>
-          <p className="text-sm text-[#7A5843] mt-1 max-w-xl">
+          <h1 className="text-3xl font-extrabold text-white tracking-tight">My Trips & Itineraries</h1>
+          <p className="text-sm text-slate-400 mt-1 max-w-xl">
             Monitor planned and booked journeys with continuous crowd forecasts and transit risk insights.
           </p>
         </div>
@@ -84,15 +84,15 @@ export default function MyTripsPage() {
       </div>
 
       {/* Tabs */}
-      <div className="flex flex-wrap items-center gap-2 border-b border-[#F2DECC] pb-3">
+      <div className="flex flex-wrap items-center gap-2 border-b border-slate-800 pb-3">
         {['All', 'Upcoming', 'Saved', 'Completed', 'Cancelled'].map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
             className={`px-4 py-2 rounded-2xl text-xs font-bold transition-all cursor-pointer ${
               activeTab === tab
-                ? 'bg-gradient-to-r from-[#FF7657] to-[#FF9F43] text-white shadow-md shadow-[#FF7657]/30'
-                : 'bg-[#FFFDF8] text-[#7A5843] border border-[#F2DECC] hover:text-[#34261F] hover:bg-[#FFF8ED]'
+                ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-md shadow-cyan-500/20'
+                : 'bg-slate-900/60 text-slate-400 border border-slate-800 hover:text-white hover:bg-slate-800/60'
             }`}
           >
             {tab}
@@ -102,12 +102,12 @@ export default function MyTripsPage() {
 
       {/* Trip Cards Grid */}
       {loading ? (
-        <div className="text-center py-12 text-[#7A5843] text-xs font-semibold">Loading itineraries...</div>
+        <div className="text-center py-12 text-slate-400 text-xs font-semibold">Loading itineraries...</div>
       ) : trips.length === 0 ? (
-        <GlassCard className="p-12 text-center border border-[#F2DECC] space-y-4">
-          <Luggage className="w-12 h-12 text-[#FF9F43] mx-auto opacity-70" />
-          <h3 className="text-lg font-bold text-[#34261F]">No journeys found in this category</h3>
-          <p className="text-xs text-[#7A5843] max-w-md mx-auto">
+        <GlassCard className="p-12 text-center border border-slate-800 bg-slate-900/60 space-y-4">
+          <Luggage className="w-12 h-12 text-cyan-400 mx-auto opacity-70" />
+          <h3 className="text-lg font-bold text-white">No journeys found in this category</h3>
+          <p className="text-xs text-slate-400 max-w-md mx-auto">
             Use the Travel Prediction engine to evaluate routes, forecast congestion, and save active itineraries.
           </p>
           <AnimatedButton
@@ -122,66 +122,66 @@ export default function MyTripsPage() {
           {trips.map((t) => (
             <TiltCard
               key={t._id}
-              className="p-6 border border-[#F2DECC] flex flex-col justify-between hover:border-[#FF9F43] transition-all space-y-4"
+              className="p-6 border border-slate-800 bg-slate-900/60 flex flex-col justify-between hover:border-cyan-500/40 transition-all space-y-4"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <Plane className="w-5 h-5 text-[#FF7657]" />
-                    <span className="font-extrabold text-[#34261F] text-lg">{t.origin}</span>
-                    <span className="text-[#FF9F43] font-bold">→</span>
-                    <span className="font-extrabold text-[#34261F] text-lg">{t.destination}</span>
+                    <Plane className="w-5 h-5 text-cyan-400" />
+                    <span className="font-extrabold text-white text-lg">{t.origin}</span>
+                    <span className="text-cyan-400 font-bold">→</span>
+                    <span className="font-extrabold text-white text-lg">{t.destination}</span>
                   </div>
                   <span
                     className={`text-xs font-bold px-2.5 py-0.5 rounded-full ${
                       t.status === 'Upcoming'
-                        ? 'bg-[#7BC67B]/20 text-[#2D6A2E] border border-[#7BC67B]/40'
+                        ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
                         : t.status === 'Saved'
-                        ? 'bg-[#FF9F43]/20 text-[#A85832] border border-[#FF9F43]/40'
+                        ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30'
                         : t.status === 'Completed'
-                        ? 'bg-[#FFC857]/20 text-[#8C6E54] border border-[#FFC857]/40'
-                        : 'bg-[#FF7657]/20 text-[#C0392B] border border-[#FF7657]/40'
+                        ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30'
+                        : 'bg-rose-500/20 text-rose-300 border border-rose-500/30'
                     }`}
                   >
                     {t.status}
                   </span>
                 </div>
 
-                <div className="text-xs text-[#7A5843] flex flex-wrap items-center gap-3 font-medium">
-                  <span className="flex items-center gap-1.5 font-bold text-[#5A4032]">
-                    <Calendar className="w-3.5 h-3.5 text-[#FF7657]" />
+                <div className="text-xs text-slate-400 flex flex-wrap items-center gap-3 font-medium">
+                  <span className="flex items-center gap-1.5 font-bold text-slate-200">
+                    <Calendar className="w-3.5 h-3.5 text-cyan-400" />
                     {t.travelDate} {t.returnDate ? `to ${t.returnDate}` : ''}
                   </span>
                   <span>•</span>
-                  <span className="uppercase font-semibold text-[#7A5843]">{t.transportMode || 'Train'}</span>
+                  <span className="uppercase font-semibold text-slate-400">{t.transportMode || 'Train'}</span>
                   <span>•</span>
                   <span>{t.passengers || 1} Traveler(s)</span>
                 </div>
 
                 {/* Demand & Risk Score Badges */}
-                <div className="grid grid-cols-2 gap-2 text-xs py-2 border-y border-[#F2DECC]">
-                  <div className="p-3 rounded-2xl bg-[#FFF8ED] border border-[#F2DECC]">
-                    <span className="text-[10px] text-[#7A5843] block font-semibold">Travel Demand</span>
-                    <span className="font-black text-[#FF7657] text-sm">
+                <div className="grid grid-cols-2 gap-2 text-xs py-2 border-y border-slate-800">
+                  <div className="p-3 rounded-2xl bg-slate-800/50 border border-slate-700/50">
+                    <span className="text-[10px] text-slate-400 block font-semibold">Travel Demand</span>
+                    <span className="font-black text-cyan-400 text-sm">
                       {t.crowdLevel || 'HIGH'} ({t.demandScore || 82}%)
                     </span>
                   </div>
-                  <div className="p-3 rounded-2xl bg-[#FFF8ED] border border-[#F2DECC]">
-                    <span className="text-[10px] text-[#7A5843] block font-semibold">Journey Risk</span>
-                    <span className="font-black text-[#FF9F43] text-sm">
+                  <div className="p-3 rounded-2xl bg-slate-800/50 border border-slate-700/50">
+                    <span className="text-[10px] text-slate-400 block font-semibold">Journey Risk</span>
+                    <span className="font-black text-blue-400 text-sm">
                       {t.overallRiskLevel || 'MEDIUM'} ({t.overallRiskScore || 62}/100)
                     </span>
                   </div>
                 </div>
 
-                {t.notes && <p className="text-xs text-[#7A5843] italic bg-[#FFF8ED] p-2.5 rounded-xl border border-[#F2DECC]">"{t.notes}"</p>}
+                {t.notes && <p className="text-xs text-slate-300 italic bg-slate-800/60 p-2.5 rounded-xl border border-slate-700/60">"{t.notes}"</p>}
               </div>
 
               {/* Actions Footer */}
-              <div className="flex items-center justify-between pt-3 border-t border-[#F2DECC] text-xs">
+              <div className="flex items-center justify-between pt-3 border-t border-slate-800 text-xs">
                 <button
                   onClick={() => navigate('/predict')}
-                  className="font-bold text-[#FF7657] hover:text-[#E05D38] flex items-center gap-1 cursor-pointer transition-colors"
+                  className="font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-1 cursor-pointer transition-colors"
                 >
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>View Trip Forecast →</span>
@@ -191,7 +191,7 @@ export default function MyTripsPage() {
                   <select
                     value={t.status}
                     onChange={(e) => handleStatusChange(t._id, e.target.value)}
-                    className="px-2.5 py-1 rounded-xl bg-[#FFFDF8] border border-[#F2DECC] text-[#34261F] text-xs font-semibold cursor-pointer focus:outline-none"
+                    className="px-2.5 py-1 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 text-xs font-semibold cursor-pointer focus:outline-none"
                   >
                     <option value="Upcoming">Upcoming</option>
                     <option value="Completed">Completed</option>
@@ -201,7 +201,7 @@ export default function MyTripsPage() {
 
                   <button
                     onClick={() => handleDelete(t._id)}
-                    className="p-1.5 rounded-xl text-[#7A5843] hover:text-[#FF7657] hover:bg-[#FFF8ED] transition-colors cursor-pointer border border-transparent hover:border-[#F2DECC]"
+                    className="p-1.5 rounded-xl text-slate-400 hover:text-rose-400 hover:bg-slate-800 transition-colors cursor-pointer border border-transparent hover:border-slate-700"
                     title="Delete Trip"
                   >
                     <Trash2 className="w-4 h-4" />
@@ -215,4 +215,3 @@ export default function MyTripsPage() {
     </div>
   );
 }
-

@@ -39,12 +39,12 @@ export default function SavedTripsPage() {
     <div className="space-y-8 pb-16">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF7657]/10 border border-[#FF7657]/25 text-[#FF7657] text-xs font-bold uppercase tracking-wider mb-2">
-            <Heart className="w-3.5 h-3.5 text-[#FF7657]" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-wider mb-2">
+            <Heart className="w-3.5 h-3.5 text-cyan-400" />
             Bookmarked Corridors
           </div>
-          <h1 className="text-3xl font-extrabold text-[#34261F] tracking-tight">Saved Trips</h1>
-          <p className="text-sm text-[#7A5843] mt-1 max-w-xl">
+          <h1 className="text-3xl font-extrabold text-white tracking-tight">Saved Trips</h1>
+          <p className="text-sm text-slate-400 mt-1 max-w-xl">
             Quickly access and re-run predictions for your favorite corridors and potential travel dates.
           </p>
         </div>
@@ -59,10 +59,10 @@ export default function SavedTripsPage() {
       </div>
 
       {savedTrips.length === 0 && !loading ? (
-        <GlassCard className="p-12 text-center border border-[#F2DECC] space-y-4">
-          <Heart className="w-12 h-12 text-[#FF9F43] mx-auto opacity-70" />
-          <h3 className="text-lg font-bold text-[#34261F]">No saved trips yet</h3>
-          <p className="text-xs text-[#7A5843] max-w-md mx-auto">
+        <GlassCard className="p-12 text-center border border-slate-800 bg-slate-900/60 space-y-4">
+          <Heart className="w-12 h-12 text-cyan-400 mx-auto opacity-70" />
+          <h3 className="text-lg font-bold text-white">No saved trips yet</h3>
+          <p className="text-xs text-slate-400 max-w-md mx-auto">
             Click "Save Trip" from the Journey Prediction page to bookmark your preferred travel routes.
           </p>
           <AnimatedButton
@@ -77,37 +77,37 @@ export default function SavedTripsPage() {
           {savedTrips.map((t) => (
             <TiltCard
               key={t._id}
-              className="p-6 border border-[#F2DECC] flex flex-col justify-between hover:border-[#FF9F43] transition-all space-y-4"
+              className="p-6 border border-slate-800 bg-slate-900/60 flex flex-col justify-between hover:border-cyan-500/50 transition-all space-y-4"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="font-extrabold text-[#34261F] text-base">
+                  <span className="font-extrabold text-white text-base">
                     {t.origin} → {t.destination}
                   </span>
                   <button
                     onClick={() => handleRemove(t._id)}
-                    className="p-1.5 rounded-xl text-[#7A5843] hover:text-[#FF7657] hover:bg-[#FFF8ED] transition-colors cursor-pointer"
+                    className="p-1.5 rounded-xl text-slate-400 hover:text-rose-400 hover:bg-slate-800 transition-colors cursor-pointer"
                     title="Remove"
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>
                 </div>
-                <p className="text-xs text-[#7A5843] flex items-center gap-1.5 font-medium">
-                  <Calendar className="w-3.5 h-3.5 text-[#FF7657]" />
-                  <span>Target Date: <strong>{t.travelDate}</strong></span>
+                <p className="text-xs text-slate-400 flex items-center gap-1.5 font-medium">
+                  <Calendar className="w-3.5 h-3.5 text-cyan-400" />
+                  <span>Target Date: <strong className="text-slate-200">{t.travelDate}</strong></span>
                 </p>
-                <div className="p-3 rounded-2xl bg-[#FFF8ED] border border-[#F2DECC] text-xs">
-                  <span className="font-extrabold text-[#FF7657] block">{t.crowdLevel || 'HIGH'} CROWD</span>
-                  <span className="text-[11px] text-[#7A5843] font-medium">Predicted Demand: {t.demandScore || 82}%</span>
+                <div className="p-3 rounded-2xl bg-slate-800/60 border border-slate-700/60 text-xs">
+                  <span className="font-extrabold text-cyan-400 block">{t.crowdLevel || 'HIGH'} CROWD</span>
+                  <span className="text-[11px] text-slate-400 font-medium">Predicted Demand: {t.demandScore || 82}%</span>
                 </div>
               </div>
 
               <button
                 onClick={() => navigate('/predict')}
-                className="w-full py-2.5 rounded-xl bg-[#FFFDF8] hover:bg-[#FFF8ED] border border-[#F2DECC] hover:border-[#FF9F43] text-xs font-bold text-[#A85832] flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-sm"
+                className="w-full py-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700/80 hover:border-cyan-500/40 text-xs font-semibold text-cyan-300 flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-sm hover:shadow-cyan-500/10"
               >
                 <span>Re-Evaluate Live Risk</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#FF7657]" />
+                <ArrowRight className="w-3.5 h-3.5 text-cyan-400" />
               </button>
             </TiltCard>
           ))}
@@ -116,4 +116,3 @@ export default function SavedTripsPage() {
     </div>
   );
 }
-

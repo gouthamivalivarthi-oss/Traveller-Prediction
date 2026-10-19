@@ -49,7 +49,7 @@ export default function Sidebar({ isOpen, onClose }) {
       {/* Mobile backdrop */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-40 bg-[#34261F]/40 backdrop-blur-sm lg:hidden"
+          className="fixed inset-0 z-40 bg-slate-950/70 backdrop-blur-sm lg:hidden"
           onClick={onClose}
         />
       )}
@@ -57,22 +57,22 @@ export default function Sidebar({ isOpen, onClose }) {
       <aside
         className={`fixed top-0 left-0 z-50 h-screen w-72 transition-transform duration-300 ease-in-out lg:translate-x-0 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
-        } bg-[#FFFDF8]/95 backdrop-blur-xl border-r border-[#F2DECC] flex flex-col justify-between shadow-2xl`}
+        } bg-[#0B1120]/95 backdrop-blur-xl border-r border-slate-800/80 flex flex-col justify-between shadow-2xl`}
       >
         <div>
           {/* Logo & Brand */}
-          <div className="flex items-center gap-3 px-6 py-5 border-b border-[#F2DECC]">
-            <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-[#FF7657] to-[#FF9F43] flex items-center justify-center text-white shadow-md shadow-[#FF7657]/30">
+          <div className="flex items-center gap-3 px-6 py-5 border-b border-slate-800/80">
+            <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white shadow-lg shadow-blue-500/25">
               <Plane className="w-5 h-5 text-white" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-black text-lg text-[#34261F] tracking-tight">SmartTravel</span>
-                <span className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-[#FF7657]/15 text-[#FF7657] border border-[#FF7657]/30">
+                <span className="font-extrabold text-lg text-white tracking-tight">SmartTravel</span>
+                <span className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-blue-500/15 text-cyan-400 border border-blue-500/30">
                   3D AI
                 </span>
               </div>
-              <p className="text-xs text-[#7A5843] font-medium">Predictive Travel Command</p>
+              <p className="text-xs text-slate-400 font-medium">Predictive Travel Command</p>
             </div>
           </div>
 
@@ -89,8 +89,8 @@ export default function Sidebar({ isOpen, onClose }) {
                   className={({ isActive }) =>
                     `flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-bold transition-all ${
                       isActive
-                        ? 'bg-gradient-to-r from-[#FF7657] to-[#FF9F43] text-white shadow-md shadow-[#FF7657]/30 transform scale-[1.02]'
-                        : 'text-[#5A4032] hover:text-[#34261F] hover:bg-[#FFF8ED]'
+                        ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg shadow-blue-500/25 transform scale-[1.02]'
+                        : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
                     }`
                   }
                 >
@@ -100,7 +100,7 @@ export default function Sidebar({ isOpen, onClose }) {
                     <span>{item.name}</span>
                   </div>
                   {item.badge && (
-                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-[#FFFDF8] text-[#FF7657] border border-[#F2DECC] shadow-xs">
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-slate-800/90 text-cyan-400 border border-slate-700 shadow-xs">
                       {item.badge}
                     </span>
                   )}
@@ -111,14 +111,14 @@ export default function Sidebar({ isOpen, onClose }) {
         </div>
 
         {/* Bottom User Profile Section */}
-        <div className="p-4 border-t border-[#F2DECC] bg-[#FFF8ED]/80">
+        <div className="p-4 border-t border-slate-800/80 bg-slate-900/60">
           {isDemoMode && (
-            <div className="mb-3 px-3 py-1.5 rounded-xl bg-[#7BC67B]/15 border border-[#7BC67B]/30 flex items-center justify-between">
+            <div className="mb-3 px-3 py-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#2D6A2E]" />
-                <span className="text-xs font-bold text-[#2D6A2E]">Live Demo Mode</span>
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                <span className="text-xs font-bold text-emerald-400">Live Demo Mode</span>
               </div>
-              <span className="w-2 h-2 rounded-full bg-[#7BC67B] animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             </div>
           )}
 
@@ -126,20 +126,20 @@ export default function Sidebar({ isOpen, onClose }) {
             <NavLink
               to="/profile"
               onClick={() => onClose && onClose()}
-              className="flex items-center gap-3 p-1.5 rounded-xl hover:bg-[#FFFDF8] transition-colors flex-1 min-w-0"
+              className="flex items-center gap-3 p-1.5 rounded-xl hover:bg-slate-800/60 transition-colors flex-1 min-w-0"
             >
-              <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#FF7657] to-[#FFC857] flex items-center justify-center font-bold text-xs text-white shadow-sm shrink-0">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center font-bold text-xs text-white shadow-sm shrink-0">
                 {user?.name ? user.name[0].toUpperCase() : 'G'}
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-xs font-bold text-[#34261F] truncate">{user?.name || 'Gouthami'}</p>
-                <p className="text-[10px] text-[#7A5843] truncate font-medium">{user?.preferred_transport || 'Train'} • {user?.budget || 'Medium'}</p>
+                <p className="text-xs font-bold text-slate-200 truncate">{user?.name || 'Gouthami'}</p>
+                <p className="text-[10px] text-slate-400 truncate font-medium">{user?.preferred_transport || 'Train'} • {user?.budget || 'Medium'}</p>
               </div>
             </NavLink>
 
             <button
               onClick={handleLogout}
-              className="p-2 rounded-xl text-[#7A5843] hover:text-[#FF7657] hover:bg-[#FFFDF8] transition-colors shrink-0 cursor-pointer"
+              className="p-2 rounded-xl text-slate-400 hover:text-rose-400 hover:bg-slate-800/80 transition-colors shrink-0 cursor-pointer"
               title="Log Out / Return to Home"
             >
               <LogOut className="w-4 h-4" />

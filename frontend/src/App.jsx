@@ -38,7 +38,7 @@ function AppLayout() {
   }
 
   return (
-    <div className="min-h-screen bg-[#FFF8ED] warm-hero-mesh text-[#34261F] flex relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#090D16] text-[#F8FAFC] flex relative overflow-x-hidden">
       {/* Sidebar for Dashboard & App Modules */}
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 

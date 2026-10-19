@@ -47,45 +47,45 @@ export default function HistoryPage() {
   return (
     <div className="space-y-8 pb-16">
       <div>
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF7657]/10 border border-[#FF7657]/25 text-[#FF7657] text-xs font-bold uppercase tracking-wider mb-2">
-          <History className="w-3.5 h-3.5 text-[#FF7657]" />
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-wider mb-2">
+          <History className="w-3.5 h-3.5 text-cyan-400" />
           3D Activity Stream
         </div>
-        <h1 className="text-3xl font-extrabold text-[#34261F] tracking-tight">Travel Audit Trail</h1>
-        <p className="text-sm text-[#7A5843] mt-1 max-w-xl">
+        <h1 className="text-3xl font-extrabold text-white tracking-tight">Travel Audit Trail</h1>
+        <p className="text-sm text-slate-400 mt-1 max-w-xl">
           Historical log of executed predictions, chatbot conversations, and route planning sessions.
         </p>
       </div>
 
-      <GlassCard className="p-6 sm:p-8 border border-[#F2DECC] space-y-4">
+      <GlassCard className="p-6 sm:p-8 border border-slate-800 bg-slate-900/60 space-y-4">
         {sampleHistory.map((item, idx) => (
           <div
             key={idx}
-            className="p-4 rounded-2xl bg-[#FFFDF8] border border-[#F2DECC] hover:border-[#FF9F43] transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-sm"
+            className="p-4 rounded-2xl bg-slate-800/40 border border-slate-800 hover:border-cyan-500/40 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-sm"
           >
             <div className="flex items-start gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-[#FFF8ED] border border-[#F2DECC] flex items-center justify-center shrink-0 mt-0.5 text-[#FF7657]">
+              <div className="w-10 h-10 rounded-2xl bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0 mt-0.5">
                 {item.type === 'prediction' ? (
-                  <Sparkles className="w-4 h-4 text-[#FF7657]" />
+                  <Sparkles className="w-4 h-4 text-cyan-400" />
                 ) : item.type === 'chatbot' ? (
-                  <Bot className="w-4 h-4 text-[#FF9F43]" />
+                  <Bot className="w-4 h-4 text-blue-400" />
                 ) : (
-                  <MapPin className="w-4 h-4 text-[#7BC67B]" />
+                  <MapPin className="w-4 h-4 text-emerald-400" />
                 )}
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <h4 className="font-bold text-[#34261F] text-sm">{item.title}</h4>
-                  <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-[#FF7657]/10 text-[#FF7657] border border-[#FF7657]/20">
+                  <h4 className="font-bold text-white text-sm">{item.title}</h4>
+                  <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">
                     {item.badge}
                   </span>
                 </div>
-                <p className="text-xs text-[#7A5843] mt-1">{item.result}</p>
+                <p className="text-xs text-slate-400 mt-1">{item.result}</p>
               </div>
             </div>
 
-            <span className="text-[11px] text-[#A08573] font-medium flex items-center gap-1 shrink-0">
-              <Clock className="w-3 h-3 text-[#FF9F43]" />
+            <span className="text-[11px] text-slate-400 font-medium flex items-center gap-1 shrink-0">
+              <Clock className="w-3 h-3 text-cyan-400" />
               {item.date}
             </span>
           </div>
@@ -94,4 +94,3 @@ export default function HistoryPage() {
     </div>
   );
 }
-
